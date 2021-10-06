@@ -58,6 +58,7 @@ public class RestClientSvcImpl implements IRestClientSvc {
 
 		} catch (HttpStatusCodeException e) {
 			LOG.error("HTTP EXCEPCION AL LOGUEAR USUARIO: {} {}", e.getMessage(), e.getStackTrace());
+			return null;
 		}
 		LOG.info("FINALIZA CONSUMO DE SERVICIO LOGUEAR USUARIO");
 		LOG.info(AppWebConstans.separador);

@@ -3,7 +3,7 @@
   "usuarioId" : null,
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "jvallejo@gmail.com",
   "password" : "1234",
   "canal" : "WEB"
@@ -12,7 +12,7 @@
   "usuarioId" : null,
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "jvallejo@gmail.com",
   "password" : "1234",
   "canal" : "WEB"
@@ -21,7 +21,7 @@
   "usuarioId" : null,
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "jvallejo@gmail.com",
   "password" : "1234",
   "canal" : "WEB"
@@ -30,7 +30,7 @@
   "usuarioId" : null,
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "jvallejo@gmail.com",
   "password" : "1234",
   "canal" : "WEB"
@@ -39,49 +39,22 @@
   "usuarioId" : null,
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "jvallejo@gmail.com",
   "password" : "1234",
   "canal" : "WEB"
 }, {
-  "enlace" : null,
-  "usuarioId" : null,
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
   "sistema" : "Unknown",
   "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
-  "correo" : "jvallejo@gmail.com",
-  "password" : "1234",
-  "canal" : "WEB"
-}, {
-  "enlace" : null,
-  "usuarioId" : null,
-  "sistema" : "Unknown",
-  "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
-  "correo" : "jvallejo@gmail.com",
-  "password" : "1234",
-  "canal" : "WEB"
-}, {
-  "enlace" : null,
-  "usuarioId" : null,
-  "sistema" : "Unknown",
-  "versionSistemaOperativo" : "Unknown",
-  "versionDelNavegador" : "Firefox0",
-  "correo" : "jvallejo@gmail.com",
-  "password" : "1234",
-  "canal" : "WEB"
-}, {
-  "enlace" : "x",
-  "usuarioId" : "x",
-  "sistema" : "x",
-  "versionSistemaOperativo" : "x",
-  "versionDelNavegador" : "x",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "N/A",
   "password" : "N/A",
-  "canal" : "x"
+  "canal" : "N/A"
 }, {
-  "enlace" : "L2NsaWVudGVz",
-  "usuarioId" : "54bd156b-1bb0-4399-a247-33f0853e991f",
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
   "sistema" : "x",
   "versionSistemaOperativo" : "x",
   "versionDelNavegador" : "x",
@@ -90,11 +63,335 @@
   "canal" : "x"
 }, {
   "enlace" : "L3BlZGlkb3M=",
-  "usuarioId" : "54bd156b-1bb0-4399-a247-33f0853e991f",
-  "sistema" : "x",
-  "versionSistemaOperativo" : "x",
-  "versionDelNavegador" : "x",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
   "correo" : "N/A",
   "password" : "N/A",
-  "canal" : "x"
+  "canal" : "N/A"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "jvallejo@gmail.com",
+  "password" : "1234",
+  "canal" : "WEB"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "jvallejo@gmail.com",
+  "password" : "1234",
+  "canal" : "WEB"
+}, {
+  "enlace" : "L2NsaWVudGVz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2ZhY3R1cmFz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "jvallejo@gmail.com",
+  "password" : "1234",
+  "canal" : "WEB"
+}, {
+  "enlace" : "L2NsaWVudGVz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2ZhY3R1cmFz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2NsaWVudGVz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2ZhY3R1cmFz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2NsaWVudGVz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2ZhY3R1cmFz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2NsaWVudGVz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L2ZhY3R1cmFz",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlZGlkb3M=",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : "L3BlcnNvbmFs",
+  "usuarioId" : "e5fab012-4343-4771-af88-a25d9d57eb77",
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "N/A",
+  "password" : "N/A",
+  "canal" : "N/A"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "o@gmail.com",
+  "password" : "e",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "carlos@gmail.com",
+  "password" : "1234",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "233423@gmail.com",
+  "password" : "1234",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "233423@gmail.com",
+  "password" : "4533",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "233423@gmail.com",
+  "password" : "22222",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "jva3@gmail.com",
+  "password" : "222",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "carlos@gmail.com",
+  "password" : "12455",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "carlos@gmail.com",
+  "password" : "34567",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "carlos@gmail.com",
+  "password" : "54443",
+  "canal" : "WEB"
+}, {
+  "enlace" : null,
+  "usuarioId" : null,
+  "sistema" : "Unknown",
+  "versionSistemaOperativo" : "Unknown",
+  "versionDelNavegador" : "Chrome0",
+  "correo" : "674434@mail.com",
+  "password" : "2323",
+  "canal" : "WEB"
 } ]

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blueconic.browscap.Capabilities;
 import com.blueconic.browscap.UserAgentParser;
@@ -65,16 +64,15 @@ public class AppWebController {
 		usuario = clienteServicioRest.logearUsuarioService(stringParam);
 		user = usuario;
 
-		if (usuario != null) {
-
+		if (usuario == null) {
+			return "redirect:/";
 		}
 
-		 return "principal";
+		return "principal";
 	}
 
-	
 	@GetMapping("/pedidos")
-	public String string(Model modelo, @ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
+	public String pedidos(Model modelo, @ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
 		LOG.info("PEDIDOS");
 		url = "/pedidos";
 
@@ -97,6 +95,93 @@ public class AppWebController {
 
 		if (transaccion.isPuedeAcceder()) {
 			return "pedidos";
+		}
+
+		return "notfount";
+	}
+
+	@GetMapping("/clientes")
+	public String clientes(Model modelo, @ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
+		LOG.info("CLIENTES");
+		url = "/clientes";
+
+		// VARIABLE PRIMITIVA QUE VAMOS A UTILIZAR A LO LARGO DE LA IMPLEMENTACION
+		GenericStringParam stringParam = new GenericStringParam();
+		Capabilities capabilities = userAgentParser.parse(userAgent);
+
+		// VALORES A SER UTILIZADOS EN LA AUDITORIA
+		stringParam.addValue(AppWebConstans.ENLACE, Base64.getEncoder().encodeToString(url.getBytes()))
+				.addValue(AppWebConstans.USUARIO_ID, user.getId().toString())
+				.addValue(AppWebConstans.SISTEMA, capabilities.getDeviceType() + capabilities.getPlatform())
+				.addValue(AppWebConstans.VERSION_OS, capabilities.getPlatformVersion())
+				.addValue(AppWebConstans.VERSION_NAVEGADOR,
+						capabilities.getBrowser() + capabilities.getBrowserMajorVersion())
+				.addValue(AppWebConstans.CANAL, "WEB").addValue(AppWebConstans.CANAL, "N/A")
+				.addValue(AppWebConstans.PASSWORD, "N/A");
+
+		TransaccionesType transaccion;
+		transaccion = clienteServicioRest.consultarTransaccion(stringParam);
+
+		if (transaccion.isPuedeAcceder()) {
+			return "clientes";
+		}
+
+		return "notfount";
+	}
+
+	@GetMapping("/facturas")
+	public String facturas(Model modelo, @ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
+		LOG.info("FACTURAS");
+		url = "/facturas";
+
+		// VARIABLE PRIMITIVA QUE VAMOS A UTILIZAR A LO LARGO DE LA IMPLEMENTACION
+		GenericStringParam stringParam = new GenericStringParam();
+		Capabilities capabilities = userAgentParser.parse(userAgent);
+
+		// VALORES A SER UTILIZADOS EN LA AUDITORIA
+		stringParam.addValue(AppWebConstans.ENLACE, Base64.getEncoder().encodeToString(url.getBytes()))
+				.addValue(AppWebConstans.USUARIO_ID, user.getId().toString())
+				.addValue(AppWebConstans.SISTEMA, capabilities.getDeviceType() + capabilities.getPlatform())
+				.addValue(AppWebConstans.VERSION_OS, capabilities.getPlatformVersion())
+				.addValue(AppWebConstans.VERSION_NAVEGADOR,
+						capabilities.getBrowser() + capabilities.getBrowserMajorVersion())
+				.addValue(AppWebConstans.CANAL, "WEB").addValue(AppWebConstans.CANAL, "N/A")
+				.addValue(AppWebConstans.PASSWORD, "N/A");
+
+		TransaccionesType transaccion;
+		transaccion = clienteServicioRest.consultarTransaccion(stringParam);
+
+		if (transaccion.isPuedeAcceder()) {
+			return "facturas";
+		}
+
+		return "notfount";
+	}
+
+	@GetMapping("/personal")
+	public String string(Model modelo, @ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
+		LOG.info("personal");
+		url = "/personal";
+
+		// VARIABLE PRIMITIVA QUE VAMOS A UTILIZAR A LO LARGO DE LA IMPLEMENTACION
+		GenericStringParam stringParam = new GenericStringParam();
+		Capabilities capabilities = userAgentParser.parse(userAgent);
+
+		// VALORES A SER UTILIZADOS EN LA AUDITORIA
+		stringParam.addValue(AppWebConstans.ENLACE, Base64.getEncoder().encodeToString(url.getBytes()))
+				.addValue(AppWebConstans.USUARIO_ID, user.getId().toString())
+				.addValue(AppWebConstans.SISTEMA, capabilities.getDeviceType() + capabilities.getPlatform())
+				.addValue(AppWebConstans.VERSION_OS, capabilities.getPlatformVersion())
+				.addValue(AppWebConstans.VERSION_NAVEGADOR,
+						capabilities.getBrowser() + capabilities.getBrowserMajorVersion())
+				.addValue(AppWebConstans.CANAL, "WEB").addValue(AppWebConstans.CANAL, "N/A")
+				.addValue(AppWebConstans.PASSWORD, "N/A");
+
+		TransaccionesType transaccion;
+		transaccion = clienteServicioRest.consultarTransaccion(stringParam);
+
+		if (transaccion.isPuedeAcceder()) {
+			return "facturas";
 		}
 
 		return "notfount";
