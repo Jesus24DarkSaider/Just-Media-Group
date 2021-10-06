@@ -67,6 +67,9 @@ public class RegistrarValoresArchivoJsonCommand implements ICommand {
 				json = "";
 				listaDeDatosAlmacenadosEnJson.add(datosAuditoria);
 				json = mapper.writeValueAsString(listaDeDatosAlmacenadosEnJson);
+				LOG.info("DATOS A ESCRIBIR EN ARCHIVO");
+				LOG.info(json);
+
 				FileWriter file = new FileWriter(
 						stringParam.getValues().get(AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA));
 				file.write(json);

@@ -4,7 +4,7 @@ server:
 # CONECCION A BASE DE DATOS
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:1515/postgres
+    url: jdbc:postgresql://127.0.0.1:1515/dbappweb
     username: postgres
     password: ROOT
     driver-class-name: org.postgresql.Driver

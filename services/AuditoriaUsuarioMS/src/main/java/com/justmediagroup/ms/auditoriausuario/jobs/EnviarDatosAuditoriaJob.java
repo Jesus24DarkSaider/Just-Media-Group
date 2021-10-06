@@ -34,7 +34,7 @@ public class EnviarDatosAuditoriaJob {
 	RegistrarDatosAuditoriaCommand registrarDatosAuditoriaCommand;
 
 	@SuppressWarnings("unchecked")
-	@Scheduled(fixedRate = 100000000)
+	@Scheduled(fixedRate = 3900000)
 	public void executeJobEnviarDatosAuditoria() {
 		LOG.info(AuditoriaUsuarioConstans.separador);
 		LOG.info(AuditoriaUsuarioConstans.INICIA_PROCESO_ENVIAR_DATOS_AUDITORIA);
@@ -57,8 +57,7 @@ public class EnviarDatosAuditoriaJob {
 					rutaUbicacionArchivoJson.getValorDefecto());
 
 			// 2.- OBTENEMOS DATOS DE AUDITORIA DEL ARCHIVO JSON
-			List<DatosAuditoriaDto> listado = (List<DatosAuditoriaDto>) 
-					obtenerDatosAuditoriaArchivoJsonCommand
+			List<DatosAuditoriaDto> listado = (List<DatosAuditoriaDto>) obtenerDatosAuditoriaArchivoJsonCommand
 					.execute(stringParam);
 
 			// 3.- VALIDAMOS QUE EXISTAN DATOS EN EL LISTADO
