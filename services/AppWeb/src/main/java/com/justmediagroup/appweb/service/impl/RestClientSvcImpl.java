@@ -40,12 +40,9 @@ public class RestClientSvcImpl implements IRestClientSvc {
 			RestTemplate restTemplate = new RestTemplate();
 			HttpHeaders header = new HttpHeaders();
 			header.set("Content-Type", "application/json");
-			header.set(AppWebConstans.PASSWORD,
-					genericStringParam.getValues().get(AppWebConstans.PASSWORD));
-			header.set(AppWebConstans.SISTEMA,
-					genericStringParam.getValues().get(AppWebConstans.SISTEMA));
-			header.set(AppWebConstans.VERSION_OS, 
-					genericStringParam.getValues().get(AppWebConstans.VERSION_OS));
+			header.set(AppWebConstans.PASSWORD, genericStringParam.getValues().get(AppWebConstans.PASSWORD));
+			header.set(AppWebConstans.SISTEMA, genericStringParam.getValues().get(AppWebConstans.SISTEMA));
+			header.set(AppWebConstans.VERSION_OS, genericStringParam.getValues().get(AppWebConstans.VERSION_OS));
 			header.set(AppWebConstans.VERSION_NAVEGADOR,
 					genericStringParam.getValues().get(AppWebConstans.VERSION_NAVEGADOR));
 			header.set(AppWebConstans.CANAL, genericStringParam.getValues().get(AppWebConstans.CANAL));
@@ -80,23 +77,20 @@ public class RestClientSvcImpl implements IRestClientSvc {
 			RestTemplate restTemplate = new RestTemplate();
 			HttpHeaders header = new HttpHeaders();
 			header.set("Content-Type", "application/json");
-			header.set(AppWebConstans.ENLACE,
-					genericStringParam.getValues().get(AppWebConstans.ENLACE));
-			header.set(AppWebConstans.USUARIO_ID,
-					genericStringParam.getValues().get(AppWebConstans.SISTEMA));
-			header.set(AppWebConstans.VERSION_OS, 
-					genericStringParam.getValues().get(AppWebConstans.VERSION_OS));
+			header.set(AppWebConstans.ENLACE, genericStringParam.getValues().get(AppWebConstans.ENLACE));
+			header.set(AppWebConstans.USUARIO_ID, genericStringParam.getValues().get(AppWebConstans.USUARIO_ID));
+			header.set(AppWebConstans.SISTEMA, genericStringParam.getValues().get(AppWebConstans.SISTEMA));
+			header.set(AppWebConstans.VERSION_OS, genericStringParam.getValues().get(AppWebConstans.VERSION_OS));
 			header.set(AppWebConstans.VERSION_NAVEGADOR,
 					genericStringParam.getValues().get(AppWebConstans.VERSION_NAVEGADOR));
 			header.set(AppWebConstans.CANAL, genericStringParam.getValues().get(AppWebConstans.CANAL));
-			
+
 			HttpEntity<Object> request = new HttpEntity<>(header);
 			/*
 			 * Realizamos la peticion HTTP GET al MICROSERVICIO PARA CONSULTAR EL USUARIO
 			 */
 			response = restTemplate.exchange(hostService.concat(AppWebConstans.CONSULTAR_TRANSACCION), HttpMethod.GET,
-					request, TransaccionesType.class, genericStringParam.getValues().get("correo"),
-					genericStringParam.getValues().get("enlace"));
+					request, TransaccionesType.class, genericStringParam.getValues().get(AppWebConstans.ENLACE));
 
 			LOG.info("SERVICIO RETORNA CODIGO HTTP: " + response.getStatusCodeValue());
 
