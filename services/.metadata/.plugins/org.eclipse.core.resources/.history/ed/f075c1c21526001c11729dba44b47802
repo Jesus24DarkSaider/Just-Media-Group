@@ -1,0 +1,12 @@
+package com.justmediagroup.appweb.service.contract;
+
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+public interface IRestClientSvc {
+
+	public UsuarioType logearUsuarioService();
+
+	public TransaccionesType consultarTransaccion();
+
+}

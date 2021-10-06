@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.repository.model;
+
+/**
+ * @author jesus
+ *
+ */
+public class Usuario {
+
+}

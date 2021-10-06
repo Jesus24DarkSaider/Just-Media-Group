@@ -1,0 +1,5 @@
+server:
+  port: 8991
+  
+uri:
+  hostElastic: "http://localhost:8055"

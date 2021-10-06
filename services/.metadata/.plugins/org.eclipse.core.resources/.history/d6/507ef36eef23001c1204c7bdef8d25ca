@@ -1,0 +1,55 @@
+package com.justmediagroup.ms.auditoriausuario.controller.contract;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+
+import com.justmediagroup.logica_comun.utilitarios.RespuestaType;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+@Validated
+public interface IAuditoriaUsuarioController {
+
+	@Operation(method = "verificarTransaccionDeUsuario", operationId = "verificarTrasaccionDeUsuario", description = "Capacidad que se encarga de consultar el usuario por email", tags = "UsuarioEntityServiceV1", summary = "consultar usuario por email")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "404", description = "Not Fount", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = RespuestaType.class))) })
+	@GetMapping(value = "/api/ms/link/v1/{enlace}", produces = "application/json; charset=utf-8")
+	public ResponseEntity<Object> verificarTransaccionUsuario(
+			@PathVariable(name = "enlace") String enlace,
+			@RequestHeader(value = "usuarioId", required = true) String usuarioId,
+			@RequestHeader(value = "versionSistemaOperativo", required = true) String versionSistemaOperativo,
+			@RequestHeader(value = "versionDelNavegadorF", required = true) String versionDelNavegador,
+			@RequestHeader(value = "canal", required = true) String canal);
+
+	@Operation(method = "consultarUsuarioPorEmail", operationId = "consultarUsuarioPorEmail", description = "Capacidad que se encarga de consultar el usuario por email", tags = "UsuarioEntityServiceV1", summary = "consultar usuario por email")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "404", description = "Not Fount", content = @Content(schema = @Schema(implementation = RespuestaType.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = RespuestaType.class))) })
+	@PostMapping(value = "/api/ms/login/v1/{correo}/{password}", produces = "application/json; charset=utf-8")
+	public ResponseEntity<Object> logearUsuario(@PathVariable(name = "correo") String correo,
+			@PathVariable(name = "password") String password,
+			@RequestHeader(value = "sistema", required = true) String sistema,
+			@RequestHeader(value = "versionSistemaOperativo", required = true) String versionSistemaOperativo,
+			@RequestHeader(value = "versionDelNavegadorF", required = true) String versionDelNavegador,
+			@RequestHeader(value = "canal", required = true) String canal);
+
+}

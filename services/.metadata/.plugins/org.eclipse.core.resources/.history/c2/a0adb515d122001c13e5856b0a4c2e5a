@@ -1,0 +1,48 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.utils;
+
+import org.apache.catalina.mapper.Mapper;
+import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.justmediagroup.es.usuario.repository.model.Usuario;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+/**
+ * @author jesus
+ *
+ */
+public class UsuarioConvert {
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(UsuarioConvert.class);
+	
+	@Autowired
+	private static ObjectMapper mapperJson;
+	
+	UsuarioConvert(){}
+	
+	public static UsuarioType convertModelToType(Usuario usuario) {
+		try {
+			LOGGER.info(mapperJson.writeValueAsString(usuario));
+		} catch (JsonProcessingException e) {
+			LOGGER.error(e.toString());
+		}
+		return new ModelMapper().map(usuario, UsuarioType.class);
+	}
+	
+	public static Usuario convertTypeToModel(UsuarioType usuarioType) {
+		try {
+			LOGGER.info(mapperJson.writeValueAsString(usuarioType));
+		} catch (JsonProcessingException e) {
+			LOGGER.error(e.toString());
+		}
+		return new ModelMapper().map(usuarioType, Usuario.class);
+	}
+	
+}

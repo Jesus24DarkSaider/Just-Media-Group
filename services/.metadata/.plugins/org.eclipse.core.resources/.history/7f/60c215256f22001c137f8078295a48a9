@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.justmediagroup.modelo_canonico;
+
+import java.util.UUID;
+
+
+
+/**
+ * @author jesus
+ *
+ */
+public class ValoresConfigurables {
+
+	private String id;
+
+	private String nombre;
+
+
+	private String valorDefecto;
+
+
+	private String descripcion;
+
+	private Estado estado;
+
+	
+	
+}

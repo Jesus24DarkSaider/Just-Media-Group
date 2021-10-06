@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+/**
+ * @author jesus
+ *
+ */
+public class ValidarUsuarioDTO {
+
+	private UsuarioDto usuario;
+
+	private boolean isResetIntentosLogin;
+	
+	pri
+	
+
+	/**
+	 * @return the usuario
+	 */
+	public UsuarioDto getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(UsuarioDto usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @return the isResetIntentosLogin
+	 */
+	public boolean isResetIntentosLogin() {
+		return isResetIntentosLogin;
+	}
+
+	/**
+	 * @param isResetIntentosLogin the isResetIntentosLogin to set
+	 */
+	public void setResetIntentosLogin(boolean isResetIntentosLogin) {
+		this.isResetIntentosLogin = isResetIntentosLogin;
+	}
+
+}

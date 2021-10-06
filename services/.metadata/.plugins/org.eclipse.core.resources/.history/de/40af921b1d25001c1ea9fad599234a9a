@@ -1,0 +1,5 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.business;
+
+public class RegistrarValoresArchivoJsonCommand {
+
+}

@@ -1,0 +1,24 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.modelo_canonico.IntentosLoginType;
+
+public class IntentosLoginDto extends IntentosLoginType implements IParam {
+
+	private IntentosLoginDto intentosLogin;
+
+	/**
+	 * @return the intentosLogin
+	 */
+	public IntentosLoginDto getIntentosLogin() {
+		return intentosLogin;
+	}
+
+	/**
+	 * @param intentosLogin the intentosLogin to set
+	 */
+	public void setIntentosLogin(IntentosLoginDto intentosLogin) {
+		this.intentosLogin = intentosLogin;
+	}
+
+}

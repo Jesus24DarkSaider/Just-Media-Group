@@ -1,0 +1,5 @@
+package com.justmediagroup.us.elasticservicegatewayus.service.contract;
+
+public interface ElasticServiceGatewayRepository {
+
+}

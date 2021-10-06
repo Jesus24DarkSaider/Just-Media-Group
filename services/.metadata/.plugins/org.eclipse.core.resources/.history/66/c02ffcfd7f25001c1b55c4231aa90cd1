@@ -1,0 +1,18 @@
+package com.justmediagroup.us.elasticservicegatewayus.controller.impl;
+
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+
+import com.justmediagroup.us.elasticservicegatewayus.controller.contract.IElasticServiceGatewayController;
+import com.justmediagroup.us.elasticservicegatewayus.repository.model.DatosAuditoriaUsuario;
+
+public class ElasticServiceGatewayControllerImpl implements IElasticServiceGatewayController {
+
+	@Override
+	public ResponseEntity<Object> crearDatosAuditoriaUsuario(@Valid DatosAuditoriaUsuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

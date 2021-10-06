@@ -1,0 +1,5 @@
+package com.justmediagroup.es.usuario.utils;
+
+public class TransaccionConvert {
+
+}

@@ -1,0 +1,6 @@
+server:
+  port: 9898
+
+uri:
+  auditoriaservicems: "http://127.0.0.1:8992"
+  elascticservicegatewayus: "http://127.0.0.1:8991"

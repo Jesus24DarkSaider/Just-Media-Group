@@ -1,0 +1,5 @@
+package com.justmediagroup.ms.auditoriausuario.jobs;
+
+public class EnviarDatosAuditoriaJob {
+
+}

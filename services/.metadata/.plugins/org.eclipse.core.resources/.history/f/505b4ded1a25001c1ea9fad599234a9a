@@ -1,0 +1,28 @@
+package com.justmediagroup.ms.auditoriausuario.jobs;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+
+@Component
+public class EnviarDatosAuditoriaJob {
+
+	private static final Logger LOG = LoggerFactory.getLogger(EnviarDatosAuditoriaJob.class);
+	SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyyy HH:mm:ss");
+
+	@Scheduled(fixedDelay = 3600000)
+	public void executeJobEnviarDatosAuditoria() {
+		LOG.info(AuditoriaUsuarioConstans.INICIA_PROCESO_ENVIAR_DATOS_AUDITORIA);
+		LOG.info("FECHA DE INICIO DEL PROCESO: {} ", formatoFecha.format(new Date()));
+
+		LOG.info("FECHA DE FIN DEL PROCESO: {} ", formatoFecha.format(new Date()));
+		LOG.info(AuditoriaUsuarioConstans.FINALIZA_PROCESO_ENVIAR_DATOS_AUDITORIA);
+	}
+
+}

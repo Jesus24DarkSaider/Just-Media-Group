@@ -1,0 +1,5 @@
+package com.justmediagroup.appweb.service.contract;
+
+public enum IRestClientSvc {
+
+}

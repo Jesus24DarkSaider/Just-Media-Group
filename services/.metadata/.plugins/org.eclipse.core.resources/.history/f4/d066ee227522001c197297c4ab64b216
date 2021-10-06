@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.controller.impl;
+
+/**
+ * @author jesus
+ *
+ */
+public class UsuarioControllerImpl {
+
+}

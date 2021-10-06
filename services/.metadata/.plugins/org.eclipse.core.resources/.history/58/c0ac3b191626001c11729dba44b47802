@@ -1,0 +1,31 @@
+package com.justmediagroup.appweb.service.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+
+import com.justmediagroup.appweb.service.contract.IRestClientSvc;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+public class RestClientSvcImpl implements IRestClientSvc {
+
+	private static final Logger LOG = LoggerFactory.getLogger(RestClientSvcImpl.class);
+
+	@Value("${uri.usuarioes}")
+	private String hostService;
+
+	@Override
+	public UsuarioType logearUsuarioService(IParam parametro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TransaccionesType consultarTransaccion(IParam parametro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

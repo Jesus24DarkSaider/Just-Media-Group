@@ -1,0 +1,7 @@
+package com.justmediagroup.es.usuario.repository.contract;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IUsuarioRepository extends  JpaRepository<U, ID> {
+
+}

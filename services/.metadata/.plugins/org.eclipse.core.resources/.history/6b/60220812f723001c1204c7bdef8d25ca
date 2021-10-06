@@ -1,0 +1,20 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.business;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+public class ValidarUsuarioLoginCmd implements ICommand {
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		new UnsupportedOperationException("Operacion no soportada");
+	}
+
+}

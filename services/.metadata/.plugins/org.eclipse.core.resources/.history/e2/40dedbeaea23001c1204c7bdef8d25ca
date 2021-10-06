@@ -1,0 +1,23 @@
+package com.justmediagroup.ms.auditoriausuario.controller.impl;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.justmediagroup.ms.auditoriausuario.controller.contract.IAuditoriaUsuarioController;
+
+@RestController
+public class AuditoriaUsuarioControllerImpl implements IAuditoriaUsuarioController {
+
+	@Override
+	public ResponseEntity<Object> verificarTransaccionUsuario(String enlace) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> logearUsuario(String usuario, String contrasenia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

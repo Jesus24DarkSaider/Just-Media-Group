@@ -1,0 +1,27 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+import java.util.List;
+
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+public class ValidarUsuarioDto implements IParam {
+
+	private UsuarioDto usuario;
+
+	private List<IntentosLoginDto> listadoIntentos;
+
+	/**
+	 * @return the usuario
+	 */
+	public UsuarioDto getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(UsuarioDto usuario) {
+		this.usuario = usuario;
+	}
+
+}

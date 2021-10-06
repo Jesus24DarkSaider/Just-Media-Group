@@ -1,0 +1,5 @@
+package com.justmediagroup.us.elasticservicegatewayus.service;
+
+public class IElasticServiceGatewaySvc {
+
+}

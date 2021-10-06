@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pedidos/title>
+</head>
+<body>
+
+	<header th:replace="plantilla/template :: header"></header>
+
+
+</body>
+</html>

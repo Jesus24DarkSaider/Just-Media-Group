@@ -1,0 +1,31 @@
+package com.justmediagroup.es.usuario.service.contract;
+
+import com.justmediagroup.logica_comun.utilitarios.RespuestaType;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+/**
+ * @author jesus
+ *
+ */
+public interface IUsuarioSvc {
+
+	
+	public UsuarioType consultarUsuarioPorEmail(String correo);
+	
+	public RespuestaType crearUsuario(UsuarioType usuarioType);
+	
+	public RespuestaType modificarUsuario(UsuarioType usuarioType);
+	
+	public TransaccionesType consultarTransaccionPorUsuario(String usuarioId, String enlace);
+	
+	public RespuestaType crearTransaccion(TransaccionesType transaccion);
+	
+	public RespuestaType modificarTransaccion(TransaccionesType transaccion);
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,8 @@
+package com.justmediagroup.us.elasticservicegatewayus.repository.model;
+
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName = "auditoriaUsuario", type = "datosAuditoria")
+public class DatosAuditoriaUsuario {
+
+}

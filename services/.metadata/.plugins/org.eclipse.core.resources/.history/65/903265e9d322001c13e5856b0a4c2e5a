@@ -1,0 +1,103 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.service.impl;
+
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.justmediagroup.es.usuario.repository.contract.IUsuarioRepository;
+import com.justmediagroup.es.usuario.repository.model.Usuario;
+import com.justmediagroup.es.usuario.service.contract.IUsuarioSvc;
+import com.justmediagroup.es.usuario.utils.UsuarioConvert;
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.exception.TipoError;
+import com.justmediagroup.logica_comun.utilitarios.RespuestaType;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+import com.justmediagroup.modelo_canonico.ValoresConfigurablesType;
+
+/**
+ * @author jesus
+ *
+ */
+
+@Service
+public class UsuarioSvcImpl implements IUsuarioSvc {
+
+	@Autowired
+	IUsuarioRepository usuarioRepository;
+
+	@Autowired
+	ObjectMapper mapperJson;
+
+	@Override
+	public UsuarioType consultarUsuarioPorEmail(String correo) throws BusinessException {
+		Usuario usuario;
+		usuario = usuarioRepository.consultarUsuarioPorCorreo(correo);
+		if (usuario == null) {
+			throw new BusinessException("EL RECURSO NO FUE ENCONTRADO", TipoError.NO_ENCONTRADO);
+		}
+		return UsuarioConvert.convertModelToType(usuario);
+	}
+
+	@Override
+	public UsuarioType crearUsuario(UsuarioType usuarioType) throws BusinessException {
+		if (usuarioType == null) {
+			throw new BusinessException("EL RECURSO NO PUEDE SER NULO", TipoError.SOLICITUD_INVALIDA);
+		}
+		Usuario usuario;
+		usuario = usuarioRepository.save(UsuarioConvert.convertTypeToModel(usuarioType));
+		return UsuarioConvert.convertModelToType(usuario);
+	}
+
+	@Override
+	public UsuarioType modificarUsuario(UsuarioType usuarioType) throws BusinessException {
+		UUID usuarioId = UUID.fromString(usuarioType.getId());
+		if (usuarioRepository.existsById(usuarioId)) {
+			throw new BusinessException(String.format("USUARIO CON ID [%s] no encontrado", usuarioType.getId()),
+					TipoError.NO_ENCONTRADO);
+		}
+		Usuario usuario;
+		usuario = usuarioRepository.save(UsuarioConvert.convertTypeToModel(usuarioType));
+		return usuario;
+	}
+
+	@Override
+	public TransaccionesType consultarTransaccionPorUsuario(String usuarioId, String enlace) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RespuestaType crearTransaccion(TransaccionesType transaccion) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RespuestaType modificarTransaccion(TransaccionesType transaccion) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ValoresConfigurablesType consultarValorConfigurable(String nombre) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RespuestaType crearValorConfigurable(ValoresConfigurablesType valorConfigurable) throws BusinessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

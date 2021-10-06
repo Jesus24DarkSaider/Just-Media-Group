@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.service.contract;
+
+/**
+ * @author jesus
+ *
+ */
+public interface AuditoriaUsuarioService {
+
+	public Object verificarTransaccionUsuario(String enlace, String usuarioId, String sistema,
+			String versionSistemaOperativo, String versionDelNavegador, String canal);
+
+	public Object logearUsuario(String correo, String password, String sistema, String versionSistemaOperativo,
+			String versionDelNavegador, String canal);
+}

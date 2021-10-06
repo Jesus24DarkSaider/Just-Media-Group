@@ -1,0 +1,5 @@
+package com.justmediagroup.appweb.dto;
+
+public class UsuarioDto {
+
+}

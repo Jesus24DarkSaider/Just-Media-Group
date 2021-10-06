@@ -1,0 +1,5 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+public class GenericStringParam {
+
+}

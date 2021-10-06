@@ -1,0 +1,5 @@
+package com.justmediagroup.modelo_canonico;
+
+public enum EstadoValorConfigurable {
+
+}

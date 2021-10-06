@@ -1,0 +1,5 @@
+server:
+  port: 8991
+
+uri:
+  usuarioes: "http://127.0.0.1:8155"

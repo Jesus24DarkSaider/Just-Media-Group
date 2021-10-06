@@ -1,0 +1,122 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.controller.impl;
+
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.justmediagroup.es.usuario.controller.contract.IUsuarioController;
+import com.justmediagroup.es.usuario.service.contract.IUsuarioSvc;
+import com.justmediagroup.es.usuario.utils.EntityServiceValidator;
+import com.justmediagroup.logica_comun.constantes.MensajeDelSistema;
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.utilitarios.DataValidator;
+import com.justmediagroup.logica_comun.utilitarios.RespuestaType;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+/**
+ * @author jesus
+ *
+ */
+@RestController
+public class UsuarioControllerImpl implements IUsuarioController {
+
+	private static final Logger LOG = LoggerFactory.getLogger(UsuarioControllerImpl.class);
+
+	private static final String separador = "=========================================================="
+			+ "=======================================================================================";
+
+	@Autowired
+	IUsuarioSvc usuarioService;
+
+	@Override
+	public ResponseEntity<Object> consultarUsuarioPorEmail(String correo) {
+		LOG.info(separador);
+		ResponseEntity<Object> respuesta;
+		try {
+			LOG.info("INICIA CAPACIDAD DE CONSULTAR USUARIO POR EMAIL -> {}", correo);
+			UsuarioType usuarioType;
+			usuarioType = usuarioService.consultarUsuarioPorEmail(correo);
+			respuesta = EntityServiceValidator.validarResultado(usuarioType);
+		} catch (BusinessException ex) {
+			LOG.error("EXCEPCION DE NEGOCIO {}", ex.fillInStackTrace());
+			respuesta = DataValidator.validarResultado(ex);
+		} catch (Exception e) {
+			LOG.error("EXCEPCION EN CAPACIDAD CONSULTAR USUARIO POR EMAIL {}", e.getMessage());
+			respuesta = new ResponseEntity<Object>(
+					new RespuestaType().codigoRespuesta("500").descripcion("ERROR INTERNO"),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOG.info("FINALIZA CAPACIDAD DE CONSULTAR USUARIO POR EMAIL");
+		LOG.info(separador);
+		return respuesta;
+	}
+
+	@Override
+	public ResponseEntity<Object> crearUsuario(@Valid UsuarioType usuario) {
+		LOG.info(separador);
+		ResponseEntity<Object> respuesta;
+		try {
+			LOG.info("INICIA CAPACIDAD DE CREAR USUARIO");
+			UsuarioType usuarioType;
+			usuarioType = usuarioService.crearUsuario(usuario);
+			respuesta = EntityServiceValidator.validarResultadoBYCreated(usuarioType);
+		} catch (BusinessException ex) {
+			LOG.info("ERROR DE NEGOCIO", ex.getMessage());
+			respuesta = DataValidator.validarResultado(ex);
+		} catch (Exception e) {
+			LOG.info("EXCEPCION " + e.getMessage());
+			respuesta = new ResponseEntity<>(
+					new RespuestaType().codigoRespuesta("500").descripcion(MensajeDelSistema.ERROR_INTERNO),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOG.info("FINALIZA CAPACIDAD DE CREAR USUARIO");
+		LOG.info(separador);
+		return respuesta;
+	}
+
+	@Override
+	public ResponseEntity<Object> modificarUsuario(@Valid UsuarioType usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<TransaccionesType> consultarTransaccionesPorUsuario(String usuarioId, String enlace) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> guardarTransaccionDeUsuario(@Valid TransaccionesType transaccion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> modificarTransaccionDeUsuario(@Valid TransaccionesType transaccion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> consultarValoresConfigurablesPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> crearValorConfigurable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

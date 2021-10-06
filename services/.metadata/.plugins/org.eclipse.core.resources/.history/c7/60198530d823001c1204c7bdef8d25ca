@@ -1,0 +1,5 @@
+package com.justmediagroup.ms.auditoriausuario.controller.contract;
+
+public interface IAuditoriaUsuarioController {
+
+}

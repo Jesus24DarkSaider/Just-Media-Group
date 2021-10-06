@@ -1,0 +1,10 @@
+package com.justmediagroup.us.elasticservicegatewayus.utils;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+
+@Configuration
+@EnableElasticsearchRepositories(basePackages = "com.baeldung.spring.data.es.repository")
+public class ElasticServiceGatewayConfig {
+
+}

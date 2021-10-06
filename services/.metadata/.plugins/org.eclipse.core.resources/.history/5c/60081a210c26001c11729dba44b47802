@@ -1,0 +1,23 @@
+package com.justmediagroup.appweb.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class AppWebController {
+
+	@GetMapping("/")
+	public String hola(Model modelo) {
+		
+		return "index";
+	}
+	
+	@PostMapping(value = "/login")
+	public String agregarProducto(Model model) {
+	    model.addAttribute("producto", new Producto());
+	    return "productos/agregar_producto";
+	}
+
+}

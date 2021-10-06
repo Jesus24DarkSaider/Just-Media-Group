@@ -1,0 +1,5 @@
+package com.justmediagroup.appweb.model;
+
+public class Login {
+
+}

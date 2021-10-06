@@ -1,0 +1,5 @@
+package com.justmediagroup.appweb.service;
+
+public class RestClient {
+
+}

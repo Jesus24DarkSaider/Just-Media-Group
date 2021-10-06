@@ -1,0 +1,1 @@
+@SpringBootTest@AutoConfigureMockMvc@ActiveProfiles("test")

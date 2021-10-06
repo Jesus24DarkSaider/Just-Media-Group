@@ -1,0 +1,35 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+
+@Component
+public class ConsultarTransaccionPorUrsuarioIdyEnlace implements ICommand {
+
+	private static Logger LOG = LoggerFactory.getLogger(ConsultarTransaccionPorUrsuarioIdyEnlace.class);
+
+	@Value("${uri.usuarioes}")
+	private String hostService;
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		LOG.info(AuditoriaUsuarioConstans.separador);
+		
+		
+		LOG.info(AuditoriaUsuarioConstans.separador);
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		throw new UnsupportedOperationException("Operacion no soportada");
+	}
+
+}

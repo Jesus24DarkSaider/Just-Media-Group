@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.utils;
+
+import org.modelmapper.ModelMapper;
+
+import com.justmediagroup.es.usuario.repository.model.Usuario;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+/**
+ * @author jesus
+ *
+ */
+public class UsuarioConvert {
+
+	UsuarioConvert(){}
+	
+	public static UsuarioType convertModelToType(Usuario usuario) {
+		return new ModelMapper().map(usuario, UsuarioType.class);
+	}
+	
+	public static Usuario convertTypeToModel(UsuarioType usuarioType) {
+		return new ModelMapper().map(usuarioType, Usuario.class);
+	}
+	
+}

@@ -1,0 +1,39 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+public class ValidarUsuarioDto implements IParam {
+
+	private UsuarioDto usuario;
+
+	private ValorConfigurableDto valorConfigurable;
+
+	/**
+	 * @return the usuario
+	 */
+	public UsuarioDto getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(UsuarioDto usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @return the valorConfigurable
+	 */
+	public ValorConfigurableDto getValorConfigurable() {
+		return valorConfigurable;
+	}
+
+	/**
+	 * @param valorConfigurable the valorConfigurable to set
+	 */
+	public void setValorConfigurable(ValorConfigurableDto valorConfigurable) {
+		this.valorConfigurable = valorConfigurable;
+	}
+
+}

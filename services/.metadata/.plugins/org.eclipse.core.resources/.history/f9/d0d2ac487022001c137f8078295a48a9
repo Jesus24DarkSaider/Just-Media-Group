@@ -1,0 +1,21 @@
+package com.righttek.gotalent.comun.constantes.copy2;
+
+/**
+ * @author fobregon
+ *
+ */
+public enum TipoControl {
+
+	MARCACION("MARCACION"), ESFUERZO_LABORAL("ESFUERZO LABORAL");
+	
+	private String value;
+	
+	TipoControl(String value){
+		this.value = value;
+	}
+	
+	@Override
+	public String toString() {
+		return value;
+	}
+}

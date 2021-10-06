@@ -1,0 +1,45 @@
+package com.justmediagroup.es.usuario.utils;
+
+import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.justmediagroup.es.usuario.repository.model.TransaccionesWeb;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+
+public class TransaccionConvert {
+
+	private static Logger LOGEER = LoggerFactory.getLogger(TransaccionConvert.class);
+	
+	@Autowired
+	private static ObjectMapper mapperJson;
+	
+	TransaccionConvert(){	
+	} 
+	
+	public static TransaccionesType  modelToType(TransaccionesType transaccion) {
+		try {
+			LOGEER.info(mapperJson.writeValueAsString(transaccion));
+		} catch (JsonProcessingException e) {	
+			LOGEER.info(e.getMessage());
+		}		
+		return new ModelMapper().map(transaccion, TransaccionesType.class);
+	}
+	
+	
+	public static TransaccionesWeb typeToModel(TransaccionesType transaccion) {
+		try {
+			LOGEER.info(mapperJson.writeValueAsString(transaccion));
+		} catch (JsonProcessingException e) {	
+			LOGEER.info(e.getMessage());
+		}		
+		return new ModelMapper().map(transaccion,TransaccionesWeb.class);
+	}
+	
+	
+	
+	
+}

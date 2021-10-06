@@ -1,0 +1,70 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.controller.impl;
+
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.justmediagroup.es.usuario.controller.contract.IUsuarioController;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+/**
+ * @author jesus
+ *
+ */
+@RestController
+public class UsuarioControllerImpl implements IUsuarioController {
+
+	@Override
+	public ResponseEntity<Object> consultarUsuarioPorEmail(String correo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> crearUsuario(@Valid UsuarioType usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> modificarUsuario(@Valid UsuarioType usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<TransaccionesType> consultarTransaccionesPorUsuario(String usuarioId, String enlace) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> guardarTransaccionDeUsuario(@Valid TransaccionesType transaccion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> modificarTransaccionDeUsuario(@Valid TransaccionesType transaccion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> consultarValoresConfigurablesPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> crearValorConfigurable() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

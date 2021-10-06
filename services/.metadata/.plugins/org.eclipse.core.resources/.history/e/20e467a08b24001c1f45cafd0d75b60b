@@ -1,0 +1,47 @@
+package com.justmediagroup.ms.auditoriausuario.controller.impl;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+import com.justmediagroup.ms.auditoriausuario.controller.contract.IAuditoriaUsuarioController;
+
+@RestController
+public class AuditoriaUsuarioControllerImpl implements IAuditoriaUsuarioController {
+
+	private static Logger LOG = LoggerFactory.getLogger(AuditoriaUsuarioControllerImpl.class);
+
+	@Override
+	public ResponseEntity<Object> verificarTransaccionUsuario(String enlace, String usuarioId, String sistema,
+			String versionSistemaOperativo, String versionDelNavegador, String canal) {
+		LOG.info(AuditoriaUsuarioConstans.separador);
+		LOG.info("INICIA CAPACIDAD DE LOGUEAR USUARIO");
+		LOG.info("ENLACE  : "+ enlace);
+		LOG.info("ENLACE  : "+ usuarioId);
+		LOG.info("SISTEMA : " + sistema);
+		LOG.info("VERSION SISTEMA OPERATIVO : " + versionSistemaOperativo);
+		LOG.info("VERSION DEL NAVEGADOR : " + versionDelNavegador);
+		LOG.info("CANAL : " + canal);
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Object> logearUsuario(String correo, String password, String sistema,
+			String versionSistemaOperativo, String versionDelNavegador, String canal) {
+		LOG.info(AuditoriaUsuarioConstans.separador);
+		LOG.info("INICIA CAPACIDAD DE LOGUEAR USUARIO");
+		LOG.info("ENLACE  : "+ correo);
+		LOG.info("SISTEMA : " + sistema);
+		LOG.info("VERSION SISTEMA OPERATIVO : " + versionSistemaOperativo);
+		LOG.info("VERSION DEL NAVEGADOR : " + versionDelNavegador);
+		LOG.info("CANAL : " + canal);
+		return null;
+	}
+
+
+
+
+
+}

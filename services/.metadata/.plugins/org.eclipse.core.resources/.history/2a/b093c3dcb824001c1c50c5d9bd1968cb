@@ -1,0 +1,37 @@
+package com.justmediagroup.ms.auditoriausuario.constans;
+
+public class AuditoriaUsuarioConstans {
+
+	public static final String separador = "==========================================================="
+			+ "=======================================================================================";
+
+	// URIS DE LAS CAPACIDADES DE SERVICIOS A ORQUESTAR
+
+	public static final String CONSULTAR_USUARIO_POR_EMAIL = "/api/es/usuario/v1/{correo}";
+	public static final String CONSULTAR_VALOR_CONFIGURABLE_POR_NOMBRE = "/api/es/valorconfigurable/v1/{nombre}";
+	public static final String ACTUALIZAR_USUARIO = "/api/es/usuario/v1";
+	public static final String CONSULTAR_TRANSACCION_POR_USUARIOID_ENLACE = "/api/es/transaccion/usuario/v1/{usuarioId}/{enlace}";
+	public static final String ACTUALIZAR_TRANSACCION = "/api/es/transaccion/v1";
+	public static final String CREAR_INTENTOS_LOGIN = "/api/es/intentoslogin/v1";
+	public static final String ACTUALIZAR_INTENTOS_LOGIN = "/api/es/intentoslogin/v1";
+	public static final String CONSULTAR_INTENTOS_LOGIN_POR_CORREO = "/api/es/intentoslogin/v1/{correo}";
+
+	// MENSAJES DE RESPUESTA
+	public static final String MENSAJE_CLAVE_INCORRECTA = "Tu usuario o clave está incorrecta";
+	public static final String MENSAJE_USUARIO_BLOQUEADO = "Usuario se encuentra bloqueado por maximo de intentos de login";
+
+	public static final String MENSAJE_ERROR_CONSULTA = "A OCURRIDO UN ERROR AL CONSULTAR INFORMACIÓN DE %s";
+	public static final String MENSAJE_ERROR_CREAR = "A OCURRIDO UN ERROR AL CREAR %s";
+	public static final String MENSAJE_ERROR_MODIFICAR = "A OCURRIDO UN ERROR AL MODIFICAR %s";
+	public static final String INICIA_CAPACIDAD_LOGUEAR_USUARIO = " ***************** INICIA CAPACIDAD DE LOGEAR USUARIO MS "
+			+ "*****************";
+	public static final String FINALIZA_CAPACIDAD_LOGUEAR_USUARIO = " ***************** INICIA CAPACIDAD DE LOGEAR USUARIO MS "
+			+ "*****************";
+	public static final int MINIMO_DE_INTENTOS_LOGIN_A_VALIDAR = 1;
+
+	// NOMBRE DE VALORES CONFIGURABLES A UTILIZAR
+	public static final String VALOR_CONFIGURABLE = "valorConfigurable";
+	public static final String MAXIMO_INTENTOS_LOGIN = "maximoIntentosLogin";
+	public static final String VALOR_PERMITIDO_DE_ACCESO = "valorPermitidoDeAcceso";
+
+}

@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.justmediagroup.modelo_canonico;
+
+import java.util.UUID;
+
+/**
+ * @author jesus
+ *
+ */
+public class TransaccionesType {
+
+	private String idAcceso;
+
+	private String enlaceWeb;
+
+	private int cantidadVisitas;
+
+	private String usuarioId;
+
+}

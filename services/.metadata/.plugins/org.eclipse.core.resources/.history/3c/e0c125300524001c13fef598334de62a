@@ -1,0 +1,7 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+public class ValidarUsuarioDto implements IParam {
+
+}

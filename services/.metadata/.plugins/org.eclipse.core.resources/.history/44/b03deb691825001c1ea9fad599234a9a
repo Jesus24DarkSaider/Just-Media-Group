@@ -1,0 +1,22 @@
+package com.justmediagroup.ms.auditoriausuario.jobs;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+
+@Component
+public class EnviarDatosAuditoriaJob {
+
+	private static final Logger LOG = LoggerFactory.getLogger(EnviarDatosAuditoriaJob.class);
+
+	@Scheduled(fixedDelay = 1000)
+	public void executeJobEnviarDatosAuditoria() {
+		LOG.info(AuditoriaUsuarioConstans.INICIA_PROCESO_ENVIAR_DATOS_AUDITORIA);
+
+		LOG.info(AuditoriaUsuarioConstans.FINALIZA_PROCESO_ENVIAR_DATOS_AUDITORIA);
+	}
+
+}

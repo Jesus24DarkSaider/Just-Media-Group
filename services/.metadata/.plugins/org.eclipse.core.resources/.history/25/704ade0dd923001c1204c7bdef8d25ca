@@ -1,0 +1,13 @@
+package com.justmediagroup.ms.auditoriausuario.controller.contract;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+
+@Validated
+public interface IAuditoriaUsuarioController {
+
+	public ResponseEntity<Object> verificarTransaccionUsuario(String enlace);
+
+	public ResponseEntity<Object> logearUsuario(String usuario, String contrasenia);
+
+}

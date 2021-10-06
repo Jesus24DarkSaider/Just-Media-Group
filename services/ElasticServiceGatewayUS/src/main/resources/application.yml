@@ -1,0 +1,5 @@
+server:
+  port: 8991
+  
+uri:
+  hostelastic: "127.0.0.1:9200"

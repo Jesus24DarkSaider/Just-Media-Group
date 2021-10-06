@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
+
+/**
+ * @author jesus
+ *
+ */
+public class CrearIntentosLogin {
+
+}

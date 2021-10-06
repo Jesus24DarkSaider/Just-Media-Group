@@ -1,0 +1,36 @@
+package com.justmediagroup.es.usuario.repository.model;
+
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity(name = "tb_valores_configurables")
+public class ValoresConfigurables {
+
+	@Id
+	@Column(name = "id", unique = true)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private UUID id;
+	
+	@Column(name = "descripcion")
+	private String descripcion;
+
+	@Column(name = "estado")
+	private String estado;
+
+	@Column(name = "nombre")
+	private String nombre;
+
+	@Column(name = "valor_defecto")
+	private String valorDefecto;
+	
+	
+	
+	
+	
+
+}

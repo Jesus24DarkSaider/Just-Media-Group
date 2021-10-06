@@ -1,0 +1,16 @@
+package com.justmediagroup.es.usuario.repository.contract;
+
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.justmediagroup.es.usuario.repository.model.IntentosLogin;
+
+public interface IIntentosLoginRepository extends JpaRepository<IntentosLogin, UUID> {
+
+	public List<IntentosLogin> findByCorreoUsuario(String correoUsuario);
+	
+	
+
+}

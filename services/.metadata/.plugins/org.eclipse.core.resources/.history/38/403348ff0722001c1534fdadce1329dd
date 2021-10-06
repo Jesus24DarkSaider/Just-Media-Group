@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.service.contract;
+
+/**
+ * @author jesus
+ *
+ */
+public class IUsuarioSvc {
+
+}

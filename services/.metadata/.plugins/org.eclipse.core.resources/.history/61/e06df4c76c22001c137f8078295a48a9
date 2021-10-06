@@ -1,0 +1,124 @@
+package com.justmediagroup.es.usuario.controller.contract;
+
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
+/**
+ * @author jesus
+ *
+ */
+
+@Validated
+public interface IUsuarioController {
+
+	// CAPACIDADES PARA LA GESTION DE USUARIOS
+
+	@Operation(method = "consultarUsuarioPorEmail", operationId = "consultarUsuarioPorEmail", description = "Capacidad que se encarga de consultar el usuario por email", tags = "UsuarioEntityServiceV1", summary = "consultar usuario por email")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "404", description = "Not Fount", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = Object.class))) })
+	@GetMapping(value = "api/es/v1/usuario/{correo}", produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	public ResponseEntity<Object> consultarUsuarioPorEmail(@PathVariable(name = "correo") String correo);
+
+	
+	
+	@Operation(method = "crearUsuario", operationId = "crearUsuario", description = "Capacidad que se encarga de crear el usuario", tags = "UsuarioEntityServiceV1", summary = "crearUsuario")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "201", description = "OK", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = Object.class))) })
+	@PostMapping(value = "api/es/v1/usuario", produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "UsuarioType", required = true, content = @Content(schema = @Schema(implementation = UsuarioType.class)))
+	public ResponseEntity<Object> crearUsuario(@Valid @RequestBody(required = true) UsuarioType usuario);
+
+	
+	
+	@Operation(method = "modificarUsuario", operationId = "modificarUsuario", description = "Capacidad que se encarga de crear el usuario", tags = "UsuarioEntityServiceV1", summary = "modificarUsuario")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = Object.class))), })
+	@PutMapping(value = "api/es/v1/usuario", produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "UsuarioType", required = true, content = @Content(schema = @Schema(implementation = UsuarioType.class)))
+	public ResponseEntity<Object> modificarUsuario(@Valid @RequestBody(required = true) UsuarioType usuario);
+
+	
+	
+	// CAPACIDADES PARA LA GESTION DE TRANSACCIONES
+	@Operation(method = "consultarTransaccionPorUsuarioIdyEnlace", operationId = "consultarTransaccionPorUsuarioIdyEnlace", description = "consultar Transaccion Por UsuarioId y Enlace", tags = "TransaccionesEntirySeviceV1", summary = "consultarTransaccionPorUsuarioIdyEnlace")
+	@ApiResponses(value = {
+
+			@ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = TransaccionesType.class))),
+
+			@ApiResponse(responseCode = "404", description = "Not Fount", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(schema = @Schema(implementation = Object.class))),
+
+	})
+	@GetMapping(value = "api/es/v1/transaccion/usuario/{usuarioId}/{enlace}", produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	public ResponseEntity<TransaccionesType> consultarTransaccionesPorUsuario(
+			@PathVariable("usuarioId") String usuarioId, @PathVariable("enlace") String enlace);
+	
+	
+	@Operation(method = "guardarTransaccionDeUsuario", operationId = "guardarTransaccionDeUsuario", description = "guardar transaccion de Usuario", tags = "TransaccionesEntirySeviceV1", summary = "guardarTransaccionDeUsuario")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "201", description = "OK", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content(schema = @Schema(implementation = Object.class))), 
+	})
+	@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "TransaccionesType", required = true, content = @Content(schema = @Schema(implementation = TransaccionesType.class)))
+	@PostMapping(value = "api/es/v1/transaccion", produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	public ResponseEntity<Object> guardarTransaccionDeUsuario(@Valid @RequestBody TransaccionesType transaccion);
+
+	
+	@Operation(method = "modificarTransaccionDeUsuario", operationId = "modificarTransaccionDeUsuario", description = "modificarTransaccionDeUsuario",tags = "TransaccionesEntirySeviceV1" ,summary = "modificarTransaccionDeUsuario")
+	@ApiResponses(value = {
+			
+			@ApiResponse(responseCode = "200",description ="OK",content = @Content(schema = @Schema(implementation = Object.class))),
+			
+			@ApiResponse(responseCode = "400", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class))),
+
+			@ApiResponse(responseCode = "404", description = "Not Fount", content = @Content(schema = @Schema(implementation = Object.class))),
+			
+			@ApiResponse(responseCode = "500", description = "Bad Request", content = @Content(schema = @Schema(implementation = Object.class)))			
+	})
+	@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "TransaccionesType",required = true,content = @Content(schema = @Schema(implementation = TransaccionesType.class)))
+	@PutMapping(value = "api/es/v1/transaccion",produces = "application/json; charset=utf-8", consumes = "application/json; charset=utf-8")
+	public ResponseEntity<Object> modificarTransaccionDeUsuario(@Valid @RequestBody TransaccionesType transaccion);
+
+	
+	
+	// CAPACIDADES QUE SE ENCARGAN DE MANIPULAR LOS VALORES CONFIGURABLES
+	public ResponseEntity<Object> consultarValoresConfigurablesPorNombre(String nombre);
+	
+	
+	public ResponseEntity<Object> crearValorConfigurable();
+
+}

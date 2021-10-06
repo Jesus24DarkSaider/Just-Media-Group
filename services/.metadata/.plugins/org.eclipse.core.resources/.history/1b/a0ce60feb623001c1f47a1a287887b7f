@@ -1,0 +1,16 @@
+package com.justmediagroup.ms.auditoriausuario.constans;
+
+public class AuditoriaUsuarioConstans {
+
+	public static final String separador = "==========================================================="
+			+ "=======================================================================================";
+
+	// URIS DE LAS CAPACIDADES DE SERVICIOS A ORQUESTAR
+
+	public static final String CONSULTAR_USUARIO_POR_EMAIL = "";
+	public static final String CONSULTAR_VALOR_CONFIGURABLE_POR_NOMBRE ="";
+	public static final String MODIFICAR_USUARIO ="";
+	public static final String CONSULTAR_TRANSACCION_POR_USUARIOID=""; 
+	
+	
+}

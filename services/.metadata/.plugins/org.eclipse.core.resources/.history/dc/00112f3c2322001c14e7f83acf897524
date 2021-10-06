@@ -1,0 +1,6 @@
+package com.justmediagroup.es.usuario.repository.model;
+
+
+public class ValoresConfigurables {
+
+}

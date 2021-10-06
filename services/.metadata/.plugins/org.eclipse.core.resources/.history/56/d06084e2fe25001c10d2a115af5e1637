@@ -1,0 +1,15 @@
+package com.justmediagroup.appweb.controller;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class AppWebController {
+
+	@GetMapping("/")
+	public String hola(Model modelo) {
+		modelo.addAttribute("mensaje", "hola desde thymeleaf");
+		return "index";
+	}
+
+}

@@ -1,0 +1,144 @@
+package com.justmediagroup.ms.auditoriausuario.service.impl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.exception.TipoError;
+import com.justmediagroup.modelo_canonico.Estado;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.GenericStringParam;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.IntentosLoginDto;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.TransaccionDto;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.UsuarioDto;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ValidarUsuarioDto;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ValorConfigurableDto;
+import com.justmediagroup.ms.auditoriausuario.service.command.business.ValidarUsuarioLoginCmd;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ActualizarIntentosLogin;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ActualizarTransaccionCommand;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ActualizarUsuarioCommand;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ConsultarIntentosLoginCommand;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ConsultarTransaccionPorUsuarioIdyEnlace;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ConsultarUsuarioPorEmailCommand;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.ConsultarValorConfigurableCommand;
+import com.justmediagroup.ms.auditoriausuario.service.command.consumer.CrearIntentosLoginCmd;
+import com.justmediagroup.ms.auditoriausuario.service.contract.IAuditoriaUsuarioSvc;
+
+@Service
+public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
+
+	@Autowired
+	ConsultarUsuarioPorEmailCommand consultarUsuarioPorEmailCommand;
+
+	@Autowired
+	ConsultarTransaccionPorUsuarioIdyEnlace consultarTransaccionPorUrsuarioIdyEnlace;
+
+	@Autowired
+	ConsultarValorConfigurableCommand consultarValorConfigurableCommand;
+
+	@Autowired
+	ActualizarUsuarioCommand actualizarUsuarioCommand;
+
+	@Autowired
+	ActualizarTransaccionCommand actualizarTransaccionCommand;
+
+	@Autowired
+	ValidarUsuarioLoginCmd validarUsuarioLoginCmd;
+
+	@Autowired
+	ConsultarIntentosLoginCommand consultarIntentosLoginCommand;
+
+	@Autowired
+	CrearIntentosLoginCmd crearIntentosLoginCommand;
+
+	@Autowired
+	ActualizarIntentosLogin actualizarIntentosLogin;
+
+	@Override
+	public Object verificarTransaccionUsuario(String enlace, String usuarioId, String sistema,
+			String versionSistemaOperativo, String versionDelNavegador, String canal) throws BusinessException {
+
+		// Variable primitiva que vamos a utilizar a lo largo de la implementacion
+		GenericStringParam stringParam = new GenericStringParam();
+
+		// Valores a ser utilizados para auditoria
+		stringParam.addValue("correo", enlace).addValue("sistema", sistema)
+				.addValue("versionSistemaOperativo", versionSistemaOperativo)
+				.addValue("versionDelNavegador,", versionDelNavegador).addValue("canal", canal);
+
+		TransaccionDto transaccionDto = new TransaccionDto();
+		
+		transaccionDto = (TransaccionDto) consultarTransaccionPorUrsuarioIdyEnlace.execute(transaccionDto);
+
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public UsuarioDto logearUsuario(String correo, String password, String sistema, String versionSistemaOperativo,
+			String versionDelNavegador, String canal) throws BusinessException {
+
+		// Variable primitiva que vamos a utilizar a lo largo de la implementacion
+		GenericStringParam stringParam = new GenericStringParam();
+
+		// Valores a ser utilizados para auditoria
+		stringParam.addValue("correo", correo).addValue("password", password).addValue("sistema", sistema)
+				.addValue("versionSistemaOperativo", versionSistemaOperativo)
+				.addValue("versionDelNavegador,", versionDelNavegador).addValue("canal", canal);
+
+		stringParam.addValue("valorConfigurable", "maximoIntentosLogin");
+
+		// 1.- CONSULTAR VALORES CONFIGURABLES
+		ValorConfigurableDto maximoIntentosLogin = (ValorConfigurableDto) consultarValorConfigurableCommand
+				.execute(stringParam);
+
+		// 2.- CONSULTAR USUARIO POR EMAIL
+		UsuarioDto usuario = (UsuarioDto) consultarUsuarioPorEmailCommand.execute(stringParam);
+
+		// 4.- CONSULTAR INTENTOS LOGIN
+		List<IntentosLoginDto> listadoIntentosLogin = null;
+		listadoIntentosLogin = (List<IntentosLoginDto>) consultarIntentosLoginCommand.execute(stringParam);
+
+		// 3.- ¿RETORNA USUARIO NULO?
+		if (usuario == null) {
+
+			// 5.- ¿CANTIDAD DE INTENTOS ES MENOR O IGUAL AL PARAMETRIZADO?
+			if ((Integer.valueOf(maximoIntentosLogin.getValorDefecto())) >= listadoIntentosLogin.size()) {
+				// POR VERDADERO REGISTRAMOS UN INTENTO DE LOGIN CON EL CORREO
+				// ENVIADO POR LA URI DEL MICROSERVICIO
+				IntentosLoginDto intentosLoginDTO = new IntentosLoginDto();
+				intentosLoginDTO.setFechaCreacion(new Date());
+				intentosLoginDTO.setEstado(Estado.ACTIVO);
+				intentosLoginDTO.setCorreoUsuario(correo);
+
+				// 6.- REGISTRAMOS EL INTENTO LOGIN
+				crearIntentosLoginCommand.execute(intentosLoginDTO);
+
+				// 7.- LANZAMOS EXCEPCION CREDENCIALES INCORRECTAS
+				throw new BusinessException("Tu usuario o clave está incorrecta", TipoError.SOLICITUD_INVALIDA);
+			} else {
+				// 8.- POR FALSO ENTONCES LANZAMOS UNA EXCEPCION
+				// DEBIDO A QUE EL USUARIO ESTA BLOQUEADO POR MAXIMO DE INTENTOS DE LOGIN
+				throw new BusinessException("Usuario se encuentra bloqueado por maximo de intentos de login",
+						TipoError.SOLICITUD_INVALIDA);
+			}
+
+		} else {
+			ValidarUsuarioDto validarUsuarioDto = new ValidarUsuarioDto();
+			validarUsuarioDto.setUsuario(usuario);
+
+			// VALIDAMOS EL USUARIO
+			validarUsuarioLoginCmd.execute(validarUsuarioDto);
+
+			// VERIFICAMOS SI TUVO ALGUN INTENTO INCORRECTO DE LOGUEO
+			if (listadoIntentosLogin.size() >= 1) {
+				IntentosLoginDto intentosLogin = new IntentosLoginDto();
+				intentosLogin.setIntentosLogin(listadoIntentosLogin);
+				actualizarIntentosLogin.execute(intentosLogin);
+			}
+			return usuario;
+		}
+	}
+}

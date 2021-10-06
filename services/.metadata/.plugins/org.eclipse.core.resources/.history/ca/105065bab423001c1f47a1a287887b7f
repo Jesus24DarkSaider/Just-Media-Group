@@ -1,0 +1,8 @@
+package com.justmediagroup.ms.auditoriausuario.constans;
+
+public class AuditoriaUsuarioConstans {
+
+	public static final String separador ="==========================================================="
+			+ "=======================================================================================";
+	
+}

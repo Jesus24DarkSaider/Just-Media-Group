@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.service.contract;
+
+/**
+ * @author jesus
+ *
+ */
+public class AuditoriaUsuarioService {
+
+}

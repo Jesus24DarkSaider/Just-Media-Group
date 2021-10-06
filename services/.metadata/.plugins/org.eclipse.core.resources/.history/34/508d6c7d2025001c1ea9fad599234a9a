@@ -1,0 +1,19 @@
+package com.justmediagroup.modelo_canonico;
+
+public class DatosAuditoriaUsuarioType {
+
+	private String enlace;
+
+	private String usuarioId;
+
+	private String sistema;
+
+	private String versionSistemaOperativo;
+
+	private String versionDelNavegador;
+
+	private String correo;
+
+	private String password;
+
+}

@@ -1,0 +1,23 @@
+<settings>
+    <profiles>
+        <profile>
+            <id>myMavenRepo.write</id>
+            <activation>
+                <property>
+                    <name>!doNotUseMyMavenRepo</name>
+                </property>
+            </activation>
+            <properties>
+                <myMavenRepoWriteUrl>https://mymavenrepo.com/repo/8shXbOiy0NPo2d0v5uV7/</myMavenRepoWriteUrl>
+            </properties>
+        </profile>
+    </profiles>
+
+    <servers>
+        <server>
+            <id>myMavenRepo.write</id>
+            <username>myMavenRepo</username>
+            <password>Gotalent2020</password>
+        </server>
+    </servers>
+</settings>

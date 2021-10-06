@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.utils;
+
+/**
+ * @author jesus
+ *
+ */
+public class EntityServiceValidator {
+
+}

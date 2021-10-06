@@ -1,0 +1,5 @@
+package com.justmediagroup.us.elasticservicegatewayus.repository.model;
+
+public class DatosAuditoriaUsuario {
+
+}

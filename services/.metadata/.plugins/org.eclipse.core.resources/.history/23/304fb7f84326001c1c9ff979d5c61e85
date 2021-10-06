@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Menu/title>
+</head>
+<body>
+	<header th:replace="menu :: header"></header>
+	<p>Vista de Menu Principal<p>
+</body>
+</html>

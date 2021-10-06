@@ -1,0 +1,25 @@
+package com.justmediagroup.appweb;
+
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.blueconic.browscap.ParseException;
+import com.blueconic.browscap.UserAgentParser;
+import com.blueconic.browscap.UserAgentService;
+
+@SpringBootApplication
+public class AppWebApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AppWebApplication.class, args);
+	}
+
+	@Bean
+	public UserAgentParser userAgentParser() throws IOException, ParseException {
+		return new UserAgentService().loadParser();
+	}
+
+}

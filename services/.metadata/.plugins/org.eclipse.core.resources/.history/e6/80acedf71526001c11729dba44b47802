@@ -1,0 +1,24 @@
+package com.justmediagroup.appweb.service.impl;
+
+import com.justmediagroup.appweb.service.contract.IRestClientSvc;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.modelo_canonico.TransaccionesType;
+import com.justmediagroup.modelo_canonico.UsuarioType;
+
+public class RestClientSvcImpl implements IRestClientSvc {
+
+	@Override
+	public UsuarioType logearUsuarioService(IParam parametro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TransaccionesType consultarTransaccion(IParam parametro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+}

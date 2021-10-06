@@ -1,0 +1,13 @@
+package com.justmediagroup.es.usuario.repository.model;
+
+import javax.persistence.Entity;
+
+/**
+ * @author jesus
+ *
+ */
+
+@Entity(name = "tb_usuario")
+public class Usuario {
+
+}

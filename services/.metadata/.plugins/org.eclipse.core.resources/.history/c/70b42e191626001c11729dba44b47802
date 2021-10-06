@@ -1,0 +1,9 @@
+package com.justmediagroup.appweb.constans;
+
+public class AppWebConstans {
+
+	public static String LOGEAR_USUARIO_PORTAL = "";
+
+	public static String CONSULTAR_TRANSACCION = "";
+
+}

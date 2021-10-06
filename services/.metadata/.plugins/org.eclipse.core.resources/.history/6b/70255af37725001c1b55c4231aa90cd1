@@ -1,0 +1,5 @@
+package com.justmediagroup.us.elasticservicegatewayus.controller.contract;
+
+public interface IElasticServiceGatewayUS {
+
+}

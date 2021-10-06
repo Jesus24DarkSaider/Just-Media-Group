@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+/**
+ * @author jesus
+ *
+ *         Comando de consumo sirve para consultar el usuario por email al
+ *         servicio de entidad UsuarioES
+ */
+@Component
+public class ConsultarUsuarioPorEmailCommand implements ICommand {
+
+
+	private static final Logger LOG = LoggerFactory.getLogger(ConsultarUsuarioPorEmailCommand.class);
+	
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		
+		LOG.info("INICIA COMANDO CONSULTAR USUARIO POR EMAIL COMMAND");
+		
+		
+		
+		LOG.info("FINALIZA COMANDO CONSULTAR USUARIO POR EMAIL COMMAND");
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		throw new UnsupportedOperationException("Operacion no soportada");
+	}
+
+}

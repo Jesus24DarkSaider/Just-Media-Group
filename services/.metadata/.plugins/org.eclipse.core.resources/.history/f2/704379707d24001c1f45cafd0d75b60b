@@ -1,0 +1,26 @@
+package com.justmediagroup.ms.auditoriausuario.constans;
+
+public class AuditoriaUsuarioConstans {
+
+	public static final String separador = "==========================================================="
+			+ "=======================================================================================";
+
+	// URIS DE LAS CAPACIDADES DE SERVICIOS A ORQUESTAR
+
+	public static final String CONSULTAR_USUARIO_POR_EMAIL = "/api/es/usuario/v1/{correo}";
+	public static final String CONSULTAR_VALOR_CONFIGURABLE_POR_NOMBRE = "/api/es/valorconfigurable/v1/{nombre}";
+	public static final String MODIFICAR_USUARIO = "";
+	public static final String CONSULTAR_TRANSACCION_POR_USUARIOID = "";
+	public static final String ACTUALIZAR_TRANSACCION = "/api/es/transaccion/v1";
+	public static final String CREAR_INTENTOS_LOGIN = "";
+	public static final String ACTUALIZAR_INTENTOS_LOGIN = "";
+	public static final String CONSULTAR_INTENTOS_LOGIN_POR_CORREO = "";
+
+	// MENSAJES DE RESPUESTA
+	public static final String MENSAJE_ERROR_CONSULTA = "A OCURRIDO UN ERROR AL CONSULTAR INFORMACIÓN DE %s";
+	public static final String MENSAJE_ERROR_CREAR = "A OCURRIDO UN ERROR AL CREAR %s";
+	public static final String MENSAJE_ERROR_MODIFICAR = "A OCURRIDO UN ERROR AL MODIFICAR %s";
+
+	public static final int MINIMO_DE_INTENTOS_LOGIN_A_VALIDAR = 1;
+
+}

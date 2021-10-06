@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+/**
+ * @author jesus
+ *
+ */
+public class ValidarUsuarioDTO {
+
+	private UsuarioDto usuario;
+
+	private boolean isResetIntentosLogin;
+
+}

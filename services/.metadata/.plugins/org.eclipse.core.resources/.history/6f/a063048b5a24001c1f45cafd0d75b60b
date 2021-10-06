@@ -1,0 +1,31 @@
+package com.justmediagroup.es.usuario.repository.model;
+
+import java.util.Date;
+import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.justmediagroup.modelo_canonico.Estado;
+
+@Entity(name = "intentos_login")
+public class IntentosLogin {
+
+	@Id
+	@Column(name = "id")
+	private UUID id;
+
+	@Column(name = "estado")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Estado estado;
+
+	@Column(name = "fecha_creacion")
+	private Date fechaCreacion;
+
+	@Column(name = "correoUsuario")
+	private String correoUsuario;
+
+}

@@ -1,0 +1,51 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpStatusCodeException;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ValorConfigurableDto;
+
+@Component
+public class ConsultarValorConfigurableCommand implements ICommand {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ConsultarValorConfigurableCommand.class);
+
+	@Value("${uri.usuarioes}")
+	private String hostService;
+
+	private String separador = "======================================================="
+			+ "=================================================================";
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+
+		ResponseEntity<ValorConfigurableDto> response;
+
+		try {
+			LOG.info("INICIA COMANDO CONSULTAR VALORES CONFIGURABLES");
+			HttpHeaders header = new HttpHeaders();
+			HttpEntity<Object> request;
+
+			LOG.info("INICIA COMANDO CONSULTAR VALORES CONFIGURABLES");
+		} catch (HttpStatusCodeException e) {
+
+		}
+
+		LOG.info("FINALIZA COMANDO CONSULTAR VALORES CONFIGURABLES");
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		throw new UnsupportedOperationException("Operacion no soportada");
+	}
+}

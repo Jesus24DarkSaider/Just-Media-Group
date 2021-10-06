@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.righttek.gotalent.comun</groupId>
+	<artifactId>GoTalentComun</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>GoTalentComun</name>
+	<description>Proyecto para logica comun</description>
+
+
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+	<dependencies>
+		<!-- DOCUMENTACION DE CONTRATO -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.3.9</version>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>myMavenRepo.write</id>
+			<url>${myMavenRepoWriteUrl}</url>
+		</repository>
+		<snapshotRepository>
+			<id>myMavenRepo.write</id>
+			<url>${myMavenRepoWriteUrl}</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>

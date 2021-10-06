@@ -1,0 +1,20 @@
+server:
+  port: 8155
+  
+# CONECCION A BASE DE DATOS
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:1515/postgres
+    username: postgres
+    password: ROOT
+    driver-class-name: org.postgresql.Driver
+# Hibernate ddl auto (create, create-drop, validate, update)
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      jdbc:
+        lob:
+          non_contextual_creation: true
+

@@ -1,0 +1,12 @@
+[
+	{
+		"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+		"nombreCompleto": "CARLOS DE JESUS VALLEJO ALVARADO",
+		"correo": "carlvall8520@gmail.com",
+		"password": "1234",
+		"estadoUsuario": "ACTIVO",
+		"fechaCreacion": "2021-10-02T05:42:29.897Z",
+		"fechaModificacion": "2021-10-02T05:42:29.897Z",
+		"intentosLogin": 3
+	}
+]

@@ -1,0 +1,30 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.business;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+@Component
+public class RegistrarValoresArchivoJsonCommand implements ICommand {
+
+	private static final Logger LOG = LoggerFactory.getLogger(RegistrarValoresArchivoJsonCommand.class);
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		LOG.info("INICIA COMANDO REGISTRAR VALORES ARCHIVO JSON");
+
+		LOG.info(" FINALIZA COMANDO REGISTRAR VALORES ARCHIVO JSON COMMAND");
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

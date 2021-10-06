@@ -1,0 +1,59 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.business;
+
+import java.io.File;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.modelo_canonico.DatosAuditoriaUsuarioType;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ValorConfigurableDto;
+
+@Component
+public class RegistrarValoresArchivoJsonCommand implements ICommand {
+
+	private static final Logger LOG = LoggerFactory.getLogger(RegistrarValoresArchivoJsonCommand.class);
+
+	private ObjectMapper mapper = new ObjectMapper();
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		LOG.info("INICIA COMANDO REGISTRAR VALORES ARCHIVO JSON");
+		ValorConfigurableDto valoresConfigurable = (ValorConfigurableDto) parametro;
+
+		try {
+
+			File listadoDatosAuditoria;
+
+			// BUSCAMOS LOS ARCHIVOS EN LA RUTA PARAMETRIZADA
+			listadoDatosAuditoria = new File(valoresConfigurable.getValorDefecto());
+
+			List<DatosAuditoriaUsuarioType> listaDeDatosAlmacenadosEnJson = mapper.readValue(listadoDatosAuditoria,
+					new TypeReference<List<DatosAuditoriaUsuarioType>>() {
+					});
+			
+			
+			
+			
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		LOG.info(" FINALIZA COMANDO REGISTRAR VALORES ARCHIVO JSON COMMAND");
+		return null;
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

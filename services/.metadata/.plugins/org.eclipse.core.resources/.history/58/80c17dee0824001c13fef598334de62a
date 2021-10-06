@@ -1,0 +1,59 @@
+package com.justmediagroup.ms.auditoriausuario.service.command.business;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.exception.TipoError;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.modelo_canonico.Estado;
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ResultadoValidacionUsuarioDTO;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.UsuarioDto;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.ValidarUsuarioDto;
+
+@Component
+public class ValidarUsuarioLoginCmd implements ICommand {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ValidarUsuarioLoginCmd.class);
+
+	private ResultadoValidacionUsuarioDTO resultadoValidacion = new ResultadoValidacionUsuarioDTO();
+
+	@Override
+	public Object execute(IParam parametro) throws BusinessException {
+		LOG.info("INICIA COMANDO VALIDAR USUARIO LOGIN");
+		ValidarUsuarioDto validarUsuarioDto = (ValidarUsuarioDto) parametro;
+
+		// VALIDAMOS EL ESTADO DEL USUARIO SI SE ENCUENTRA EN ESTADO INACTIVO ENTONCES
+		// ESTA BLOQUEADO
+		if (validarUsuarioDto.getUsuario().getEstadoUsuario() == Estado.INACTIVO) {
+			throw new BusinessException("Usuario se encuentra bloqueado", TipoError.LOGICA_NEGOCIO);
+		}
+
+		// SI LA CANTIDAD DE INTENTOS LOGIN ES IGUAL AL PARAMETRIZADO
+		if (Integer.valueOf(validarUsuarioDto.getValorConfigurable().getValorDefecto()) == validarUsuarioDto
+				.getUsuario().getIntentosLogin()) {
+			throw new BusinessException("Usuario se encuentra bloqueado por maximo de intentos",
+					TipoError.LOGICA_NEGOCIO);
+		}
+
+		// SI LA CANTIDAD DE INTENTOS LOGIN ES MENOR O IGUAL AL PARAMETRIZADO
+		if (Integer.valueOf(validarUsuarioDto.getValorConfigurable()
+				.getValorDefecto()) <= AuditoriaUsuarioConstans.MINIMO_DE_INTENTOS_LOGIN_A_VALIDAR) {
+			LOG.info("CANTIDAD DE INTENTOS ES MENOR AL PARAMETRIZADO");
+			resultadoValidacion.setAumentarIntentos(true);
+		}
+	}
+
+	LOG.info("FINALIZA COMANDO VALIDAR USUARIO LOGIN");return null;
+
+	}
+
+	@Override
+	public void undo() {
+		new UnsupportedOperationException("Operacion no soportada");
+	}
+
+}

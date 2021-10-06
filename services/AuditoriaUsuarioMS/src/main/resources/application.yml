@@ -1,0 +1,6 @@
+server:
+  port: 8992
+
+uri:
+  usuarioes: "http://127.0.0.1:8993"
+  elascticservicegatewayus: "http://127.0.0.1:8991"

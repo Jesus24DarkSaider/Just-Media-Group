@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+/**
+ * @author jesus
+ *
+ */
+public class ValidarUsuarioDTO {
+
+}

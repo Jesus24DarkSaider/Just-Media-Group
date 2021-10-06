@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.justmediagroup.es.usuario.repository.contract;
+
+/**
+ * @author jesus
+ *
+ */
+public class IValoresConfigurablesRepository {
+
+}

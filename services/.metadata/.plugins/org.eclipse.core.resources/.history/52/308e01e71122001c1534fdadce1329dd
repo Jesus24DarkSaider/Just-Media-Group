@@ -1,0 +1,5 @@
+package com.justmediagroup.es.usuario.repository.contract;
+
+public interface IUsuarioRepository {
+
+}

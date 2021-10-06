@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestTemplate;
+
+import com.justmediagroup.logica_comun.exception.BusinessException;
+import com.justmediagroup.logica_comun.exception.TipoError;
+import com.justmediagroup.logica_comun.patrones.command.ICommand;
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+import com.justmediagroup.logica_comun.utilitarios.RespuestaType;
+import com.justmediagroup.modelo_canonico.Estado;
+import com.justmediagroup.ms.auditoriausuario.constans.AuditoriaUsuarioConstans;
+import com.justmediagroup.ms.auditoriausuario.controller.dto.IntentosLoginDto;
+import com.justmediagroup.ms.auditoriausuario.utils.AuditoriaConvert;
+
+/**
+ * @author jesus
+ *
+ */
+@Component
+public class ConsultarIntentosLoginCommand implements ICommand {
+	
+}

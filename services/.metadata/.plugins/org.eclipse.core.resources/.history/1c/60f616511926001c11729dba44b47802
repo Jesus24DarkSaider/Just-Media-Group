@@ -1,0 +1,70 @@
+package com.justmediagroup.appweb.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.blueconic.browscap.Capabilities;
+import com.blueconic.browscap.UserAgentParser;
+import com.justmediagroup.appweb.constans.AppWebConstans;
+import com.justmediagroup.appweb.dto.GenericStringParam;
+import com.justmediagroup.appweb.model.Login;
+import com.justmediagroup.appweb.service.contract.IRestClientSvc;
+
+@Controller
+
+public class AppWebController {
+
+	private static final Logger LOG = LoggerFactory.getLogger(AppWebController.class);
+
+	@Autowired
+	private UserAgentParser userAgentParser;
+
+	@Autowired
+	private IRestClientSvc clienteServicioRest;
+
+	@GetMapping("/")
+	public String index(Model modelo) {
+		LOG.info("INICIANDO RAIZ");
+		modelo.addAttribute("Login", new Login());
+		return "index";
+	}
+
+	@PostMapping(value = "/login")
+	@ResponseBody
+	public String login(@ModelAttribute Login cliente, @RequestHeader("User-Agent") String userAgent) {
+		LOG.info(" " + cliente.getCorreo());
+		LOG.info(" " + cliente.getContrasenia());
+
+		// VARIABLE PRIMITIVA QUE VAMOS A UTILIZAR A LO LARGO DE LA IMPLEMENTACION
+		GenericStringParam stringParam = new GenericStringParam();
+		Capabilities capabilities = userAgentParser.parse(userAgent);
+		// VALORES A SER UTILIZADOS EN LA AUDITORIA
+		stringParam.addValue(AppWebConstans.CORREO, cliente.getCorreo())
+				.addValue(AppWebConstans.PASSWORD, cliente.getContrasenia())
+				.addValue(AppWebConstans.SISTEMA, capabilities.getPlatform())
+				.addValue(AppWebConstans.VERSION_OS,capabilities.getPlatform())
+				.addValue(AppWebConstans.VERSION_NAVEGADOR, capabilities.getBrowserMajorVersion())
+				.addValue(AppWebConstans.CANAL, "WEB");
+
+		
+		String browser = capabilities.getBrowser();
+		String browserType = capabilities.getBrowserType();
+		String browserMajorVersion = capabilities.getBrowserMajorVersion();
+		String deviceType = capabilities.getDeviceType();
+		String platform = capabilities.getPlatform();
+		String platformVersion = capabilities.getPlatformVersion();
+
+		return String.format(
+				"User-Agent: %s\nBrowser: %s, Type: %s, Version: %s, Device: %s, Platform: %s, PlatformVersion: %s",
+				userAgent, browser, browserType, browserMajorVersion, deviceType, platform, platformVersion);
+	}
+
+}

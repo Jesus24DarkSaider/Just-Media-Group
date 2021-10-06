@@ -1,0 +1,38 @@
+package com.justmediagroup.appweb.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.blueconic.browscap.UserAgentParser;
+import com.justmediagroup.appweb.model.Login;
+
+@Controller
+public class AppWebController {
+
+	private static final Logger LOG = LoggerFactory.getLogger(AppWebController.class);
+
+	@Autowired
+	private UserAgentParser userAgentParser;
+
+	@GetMapping("/")
+	public String index(Model modelo) {
+		LOG.info("INICIANDO RAIZ");
+		modelo.addAttribute("Login", new Login());
+		return "index";
+	}
+
+	@PostMapping(value = "/login")
+	public String login(@ModelAttribute Login cliente) {
+		LOG.info(" " + cliente.getCorreo());
+		LOG.info(" " + cliente.getContrasenia());
+
+		return "index";
+	}
+
+}

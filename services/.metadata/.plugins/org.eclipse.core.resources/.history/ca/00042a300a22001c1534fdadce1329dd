@@ -1,0 +1,20 @@
+package com.justmediagroup.modelo_canonico;
+/**
+ * @author jesus
+ *
+ */
+public class UsuarioType {
+
+	
+	String id;
+	String nombreCompleto;
+	String correo;
+	String password;
+	
+	
+	
+	
+
+	
+	
+}

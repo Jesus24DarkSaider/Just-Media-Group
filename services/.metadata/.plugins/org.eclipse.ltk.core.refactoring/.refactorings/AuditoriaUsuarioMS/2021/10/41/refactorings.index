@@ -1,0 +1,7 @@
+1633312438518	Rename type 'ConsultarTransaccionPorUrsuarioIdyEnlace'
+1633356640289	Rename type 'CrearIntentosLoginCmd'
+1633356670219	Rename type 'ActualizarIntentosLogin'
+1633356691312	Rename type 'ValidarUsuarioLoginCmd'
+1633366790962	Rename resource 'auditoria.json'
+1633368302746	Rename type 'EnviarDatosAuditoriaCmd'
+1633368330831	Rename type 'RegistrarDatosAuditoriaCmd'

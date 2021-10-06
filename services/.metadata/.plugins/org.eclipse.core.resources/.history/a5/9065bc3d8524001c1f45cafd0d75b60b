@@ -1,0 +1,73 @@
+package com.justmediagroup.ms.auditoriausuario.controller.dto;
+
+import java.util.List;
+
+import com.justmediagroup.logica_comun.patrones.command.IParam;
+
+public class ValidarUsuarioDto implements IParam {
+
+	private UsuarioDto usuario;
+
+	private ValorConfigurableDto valorConfigurable;
+
+	private GenericStringParam genericStringParam;
+
+	private List<IntentosLoginDto> intentosLogin;
+
+	/**
+	 * @return the usuario
+	 */
+	public UsuarioDto getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @return the intentosLogin
+	 */
+	public List<IntentosLoginDto> getIntentosLogin() {
+		return intentosLogin;
+	}
+
+	/**
+	 * @param intentosLogin the intentosLogin to set
+	 */
+	public void setIntentosLogin(List<IntentosLoginDto> intentosLogin) {
+		this.intentosLogin = intentosLogin;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(UsuarioDto usuario) {
+		this.usuario = usuario;
+	}
+
+	/**
+	 * @return the valorConfigurable
+	 */
+	public ValorConfigurableDto getValorConfigurable() {
+		return valorConfigurable;
+	}
+
+	/**
+	 * @param valorConfigurable the valorConfigurable to set
+	 */
+	public void setValorConfigurable(ValorConfigurableDto valorConfigurable) {
+		this.valorConfigurable = valorConfigurable;
+	}
+
+	/**
+	 * @return the genericStringParam
+	 */
+	public GenericStringParam getGenericStringParam() {
+		return genericStringParam;
+	}
+
+	/**
+	 * @param genericStringParam the genericStringParam to set
+	 */
+	public void setGenericStringParam(GenericStringParam genericStringParam) {
+		this.genericStringParam = genericStringParam;
+	}
+
+}

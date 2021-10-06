@@ -1,0 +1,90 @@
+package com.justmediagroup.es.usuario.repository.model;
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+
+@Entity(name = "tb_transaccionesweb")
+public class TransaccionesWeb {
+
+	private UUID idAcceso;
+
+	private String enlaceWeb;
+
+	private int maximoAccesos;
+
+	private String idUsuario;
+
+	private int cantidadVisitas;
+
+	/**
+	 * @return the idAcceso
+	 */
+	public UUID getIdAcceso() {
+		return idAcceso;
+	}
+
+	/**
+	 * @param idAcceso the idAcceso to set
+	 */
+	public void setIdAcceso(UUID idAcceso) {
+		this.idAcceso = idAcceso;
+	}
+
+	/**
+	 * @return the enlaceWeb
+	 */
+	public String getEnlaceWeb() {
+		return enlaceWeb;
+	}
+
+	/**
+	 * @param enlaceWeb the enlaceWeb to set
+	 */
+	public void setEnlaceWeb(String enlaceWeb) {
+		this.enlaceWeb = enlaceWeb;
+	}
+
+	/**
+	 * @return the maximoAccesos
+	 */
+	public int getMaximoAccesos() {
+		return maximoAccesos;
+	}
+
+	/**
+	 * @param maximoAccesos the maximoAccesos to set
+	 */
+	public void setMaximoAccesos(int maximoAccesos) {
+		this.maximoAccesos = maximoAccesos;
+	}
+
+	/**
+	 * @return the idUsuario
+	 */
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+
+	/**
+	 * @param idUsuario the idUsuario to set
+	 */
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	/**
+	 * @return the cantidadVisitas
+	 */
+	public int getCantidadVisitas() {
+		return cantidadVisitas;
+	}
+
+	/**
+	 * @param cantidadVisitas the cantidadVisitas to set
+	 */
+	public void setCantidadVisitas(int cantidadVisitas) {
+		this.cantidadVisitas = cantidadVisitas;
+	}
+
+}
