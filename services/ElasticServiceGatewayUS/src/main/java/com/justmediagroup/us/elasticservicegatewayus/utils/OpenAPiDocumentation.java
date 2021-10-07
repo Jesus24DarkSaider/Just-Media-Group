@@ -14,7 +14,7 @@ public class OpenAPiDocumentation {
 
 	@Bean
 	public OpenAPI openApi() {
-		return new OpenAPI().info(new Info().title("UsuarioES").description("Entity Service UsuarioES")
+		return new OpenAPI().info(new Info().title("IlasticServiceGatewayServiceUSV1").description("Utility Service IlasticServiceGatewayServiceUS")
 				.termsOfService("https://www.justmediagroup.com/").version("1.0.0")
 				.license(new License().name("Apache 2.0").url("https://www.gnu.org/licenses/gpl-3.0.html"))
 				.contact(new io.swagger.v3.oas.models.info.Contact().email("api@justmediagroup.com")));
