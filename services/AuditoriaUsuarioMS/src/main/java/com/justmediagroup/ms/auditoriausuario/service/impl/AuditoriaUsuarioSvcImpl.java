@@ -89,8 +89,7 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 
 		TransaccionDto transaccionDto = new TransaccionDto();
 
-		// 1.- CONSULTAMOS LA TRANSACCION DE ACCESO A LA PAGINA QUE DESEA ACCEDER EL
-		// USUARIO
+		// 1.- CONSULTAMOS LA TRANSACCION DE ACCESO A LA PAGINA QUE DESEA ACCEDER EL USUARIO
 		transaccionDto = (TransaccionDto) consultarTransaccionPorUrsuarioIdyEnlace.execute(stringParam);
 		TransaccionDto transaccionAuditada = new TransaccionDto();
 		transaccionAuditada = transaccionDto;
@@ -99,20 +98,21 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 		stringParam.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
 				AuditoriaUsuarioConstans.VALOR_PERMITIDO_DE_ACCESO);
 
-		// 3.- CONSULTAMOS EL VALOR PERMITIDO DE ACCESO (PARAMETRIZABLE)
+		// 2.- CONSULTAMOS EL VALOR PERMITIDO DE ACCESO (PARAMETRIZABLE)
 		ValorConfigurableDto valorPermitidoAccesos = (ValorConfigurableDto) consultarValorConfigurableCommand
 				.execute(stringParam);
 
-		// 4.- ¿VALOR PARAMETRIZABLE ES MAYOR O IGUAL A LA CANTIDAD DE VISITAS
+		// 3.- ¿CANTIDAD DE VISITAS ES MENOR O IGUAL A VALOR PERMITIDO DE ACCESO (PARAMETRIZABLE)
 		// ESTABLECIDAS AL USUARIO
 		// ¿TIENE ACCESOS DISPONIBLE EL USUARIO?
 		if (transaccionDto.getCantidadVisitas() <= Integer.valueOf(valorPermitidoAccesos.getValorDefecto())) {
-			// SI TIENE ACCESOS LE ASIGNAMOS SUMAMOS UNA VISITA Y MANDAMOS A ACTUALIZAR LA
-			// TRANSACCION
+			// ACTUALIZAMOS LA CANTIDAD DE VECES QUE HA QUERIDO ACCEDER EL USUARO
 			transaccionAuditada.setPuedeAcceder(true);
 			actualizarTransaccionCommand.execute(transaccionDto);
 			return transaccionAuditada;
 		} else {
+			
+		//  4.- SI TIENE ACCESOS LE ASIGNAMOS SUMAMOS UNA VISITA Y MANDAMOS A ACTUALIZAR LA TRANSACCION
 			if (transaccionAuditada.isPuedeAcceder() != false) {
 				transaccionAuditada.setPuedeAcceder(false);
 				actualizarTransaccionCommand.execute(transaccionAuditada);
@@ -156,21 +156,21 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 		// 2.- CONSULTAR USUARIO POR EMAIL
 		UsuarioDto usuario = (UsuarioDto) consultarUsuarioPorEmailCommand.execute(stringParam);
 
-		// 4.- CONSULTAR INTENTOS LOGIN
+		// 3.- CONSULTAR INTENTOS LOGIN
 		List<IntentosLoginDto> listadoIntentosLogin = null;
 		listadoIntentosLogin = (List<IntentosLoginDto>) consultarIntentosLoginCommand.execute(stringParam);
 
-		// 3.- ¿RETORNA USUARIO NULO?
+		// 4.- ¿RETORNA USUARIO NULO?
 		if (usuario == null) {
 
 			stringParam.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
 					AuditoriaUsuarioConstans.MAXIMO_INTENTOS_LOGIN);
 
-			// 1.- CONSULTAR VALORES CONFIGURABLES
+			// 5.- CONSULTAR VALORES CONFIGURABLES
 			ValorConfigurableDto maximoIntentosLogin = (ValorConfigurableDto) consultarValorConfigurableCommand
 					.execute(stringParam);
 
-			// 5.- ¿CANTIDAD DE INTENTOS ES MENOR O IGUAL AL PARAMETRIZADO?
+			// 6.- ¿CANTIDAD DE INTENTOS ES MENOR O IGUAL AL PARAMETRIZADO?
 			if ((Integer.valueOf(maximoIntentosLogin.getValorDefecto())) >= listadoIntentosLogin.size()) {
 				// POR VERDADERO REGISTRAMOS UN INTENTO DE LOGIN CON EL CORREO
 				// ENVIADO POR LA URI DEL MICROSERVICIO
@@ -179,15 +179,15 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 				intentosLoginDTO.setEstado(Estado.ACTIVO);
 				intentosLoginDTO.setCorreoUsuario(correo);
 
-				// 6.- REGISTRAMOS EL INTENTO LOGIN
+				// 7.- REGISTRAMOS EL INTENTO LOGIN
 				crearIntentosLoginCommand.execute(intentosLoginDTO);
 
-				// 7.- LANZAMOS EXCEPCION CREDENCIALES INCORRECTAS
+				// 8.- LANZAMOS EXCEPCION CREDENCIALES INCORRECTAS
 				throw new BusinessException(AuditoriaUsuarioConstans.MENSAJE_CLAVE_INCORRECTA,
 						TipoError.SOLICITUD_INVALIDA);
 
 			} else {
-				// 8.- POR FALSO ENTONCES LANZAMOS UNA EXCEPCION
+				// 9.- POR FALSO ENTONCES LANZAMOS UNA EXCEPCION
 				// DEBIDO A QUE EL USUARIO ESTA BLOQUEADO POR MAXIMO DE INTENTOS DE LOGIN
 				throw new BusinessException(AuditoriaUsuarioConstans.MENSAJE_USUARIO_BLOQUEADO,
 						TipoError.SOLICITUD_INVALIDA);
@@ -197,10 +197,10 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 			ValidarUsuarioDto validarUsuarioDto = new ValidarUsuarioDto();
 			validarUsuarioDto.setUsuario(usuario);
 
-			// VALIDAMOS EL USUARIO
+			// 10.- VALIDAMOS EL USUARIO
 			validarUsuarioLoginCmd.execute(validarUsuarioDto);
 
-			// VERIFICAMOS SI TUVO ALGUN INTENTO INCORRECTO DE LOGUEO
+			// 11.- VERIFICAMOS SI TUVO ALGUN INTENTO INCORRECTO DE LOGUEO
 			if (listadoIntentosLogin.size() >= 1) {
 				IntentosLoginDto intentosLogin = new IntentosLoginDto();
 				intentosLogin.setIntentosLogin(listadoIntentosLogin);
