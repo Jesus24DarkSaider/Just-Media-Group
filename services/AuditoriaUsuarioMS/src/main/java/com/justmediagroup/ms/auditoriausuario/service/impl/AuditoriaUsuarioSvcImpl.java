@@ -84,7 +84,7 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 
 		stringParam.addValue(AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA,
 				rutaArchivoJson.getValorDefecto());
-
+		// ESCRIBIMOS VALORES DE REGISTROS DE LA SOLICITUD HTTTP
 		registrarValoresArchivoJsonCommand.execute(stringParam);
 
 		TransaccionDto transaccionDto = new TransaccionDto();
@@ -150,7 +150,8 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 
 		stringParam.addValue(AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA,
 				rutaUbicacionArchivoJson.getValorDefecto());
-
+		
+		// ESCRIBIMOS VALORES DE REGISTROS DE LA SOLICITUD HTTTP
 		registrarValoresArchivoJsonCommand.execute(stringParam);
 
 		// 2.- CONSULTAR USUARIO POR EMAIL
