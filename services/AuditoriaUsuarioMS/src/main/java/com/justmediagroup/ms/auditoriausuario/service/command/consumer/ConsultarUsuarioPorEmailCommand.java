@@ -67,7 +67,7 @@ public class ConsultarUsuarioPorEmailCommand implements ICommand {
 			// LOG.error("ERROR AL CONSUMIR SERVICIO USUARIOES CODIGO ERROR: " +
 			// response.getStatusCodeValue() + " "
 			// + AuditoriaConvert.convertirObjetoAString(response.getBody()));
-			return new UsuarioDto();
+			return null ;
 		}
 		LOG.info("FINALIZA COMANDO CONSULTAR USUARIO POR EMAIL COMMAND");
 		LOG.info(AuditoriaUsuarioConstans.separador);

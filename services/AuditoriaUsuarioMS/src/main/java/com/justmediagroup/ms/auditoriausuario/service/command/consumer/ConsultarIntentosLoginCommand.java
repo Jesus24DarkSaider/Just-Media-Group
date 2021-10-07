@@ -3,6 +3,7 @@
  */
 package com.justmediagroup.ms.auditoriausuario.service.command.consumer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -64,14 +65,14 @@ public class ConsultarIntentosLoginCommand implements ICommand {
 			LOG.info("BODY RETORNADO :" + AuditoriaConvert.convertirObjetoAString(response.getBody()));
 
 			if (response.getStatusCodeValue() == 404) {
-				return null;
+				return new ArrayList<>();
 			}
 
 		} catch (HttpStatusCodeException e) {
 			LOG.error("HTTP EXCEPCION COMMANDO CONSULTAR INTENTOS LOGGIN: {} {}", e.getMessage(), e.getStackTrace());
 			LOG.error("ERROR AL CONSUMIR SERVICIO USUARIOES CODIGO ERROR: " + response.getStatusCodeValue() + " "
 					+ AuditoriaConvert.convertirObjetoAString(response.getBody()));
-			return null;
+			return new ArrayList<>();
 		}
 		LOG.info("FINALIZA COMANDO CONSULTAR USUARIO POR EMAIL COMMAND");
 		LOG.info(AuditoriaUsuarioConstans.separador);

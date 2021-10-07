@@ -76,8 +76,8 @@
 
 		<!-- LOGICA COMUN -->
 		<dependency>
-			<groupId>com.righttek.gotalent.comun</groupId>
-			<artifactId>GoTalentComun</artifactId>
+			<groupId>com.justmediagroup.logica.comun</groupId>
+			<artifactId>logicaComun</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
@@ -94,7 +94,7 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.9</version>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>

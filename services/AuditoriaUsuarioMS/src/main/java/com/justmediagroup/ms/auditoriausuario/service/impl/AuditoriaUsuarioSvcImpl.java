@@ -134,33 +134,24 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 		// VALORES A SER UTILIZADOS EN LA AUDITORIA
 		stringParam.addValue(AuditoriaUsuarioConstans.CORREO, correo)
 				.addValue(AuditoriaUsuarioConstans.SISTEMA, sistema)
-				.addValue(AuditoriaUsuarioConstans.PASSWORD,password )
+				.addValue(AuditoriaUsuarioConstans.PASSWORD, password)
 				.addValue(AuditoriaUsuarioConstans.VERSION_OS, versionSistemaOperativo)
 				.addValue(AuditoriaUsuarioConstans.VERSION_NAVEGADOR, versionDelNavegador)
-				.addValue(AuditoriaUsuarioConstans.CANAL, canal)	
-				.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
+				.addValue(AuditoriaUsuarioConstans.CANAL, canal).addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
 						AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA);
-		
-		stringParam.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
-				AuditoriaUsuarioConstans.MAXIMO_INTENTOS_LOGIN);
 
 		stringParam.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
 				AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA);
 
 		ValorConfigurableDto rutaUbicacionArchivoJson = null;
-		
+
 		// 1.- CONSULTAMOS VALORES CONFIGURABLES (RUTA DE ARCHIVO JSON)
 		rutaUbicacionArchivoJson = (ValorConfigurableDto) consultarValorConfigurableCommand.execute(stringParam);
 
 		stringParam.addValue(AuditoriaUsuarioConstans.RUTA_ARCHIVO_REGISTRO_AUDITORIA,
 				rutaUbicacionArchivoJson.getValorDefecto());
-		
-		registrarValoresArchivoJsonCommand.execute(stringParam);
 
-		
-		// 1.- CONSULTAR VALORES CONFIGURABLES
-		ValorConfigurableDto maximoIntentosLogin = (ValorConfigurableDto) consultarValorConfigurableCommand
-				.execute(stringParam);
+		registrarValoresArchivoJsonCommand.execute(stringParam);
 
 		// 2.- CONSULTAR USUARIO POR EMAIL
 		UsuarioDto usuario = (UsuarioDto) consultarUsuarioPorEmailCommand.execute(stringParam);
@@ -171,6 +162,13 @@ public class AuditoriaUsuarioSvcImpl implements IAuditoriaUsuarioSvc {
 
 		// 3.- ¿RETORNA USUARIO NULO?
 		if (usuario == null) {
+
+			stringParam.addValue(AuditoriaUsuarioConstans.VALOR_CONFIGURABLE,
+					AuditoriaUsuarioConstans.MAXIMO_INTENTOS_LOGIN);
+
+			// 1.- CONSULTAR VALORES CONFIGURABLES
+			ValorConfigurableDto maximoIntentosLogin = (ValorConfigurableDto) consultarValorConfigurableCommand
+					.execute(stringParam);
 
 			// 5.- ¿CANTIDAD DE INTENTOS ES MENOR O IGUAL AL PARAMETRIZADO?
 			if ((Integer.valueOf(maximoIntentosLogin.getValorDefecto())) >= listadoIntentosLogin.size()) {
